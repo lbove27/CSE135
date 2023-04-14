@@ -10,11 +10,11 @@ jobs:
     - name: copy file via ssh password
       uses: appleboy/scp-action@v0.1.4
       with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
-        port: ${{ secrets.PORT }}
-        source: "README.txt"
+        host: 167.71.18.104
+        username: leland
+        password: CSE135leland
+        port: 22
+        source: "CSE135/README.txt"
         target: /var
         
 
