@@ -14,7 +14,7 @@ jobs:
         username: leland
         password: CSE135leland
         port: 22
-        source: /README.txt
+        source: ./README.txt
         target: ./var
         
         
