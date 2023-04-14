@@ -10,9 +10,9 @@ jobs:
     - name: copy file via ssh password
       uses: appleboy/scp-action@v0.1.4
       with:
-        host: 167.71.18.104
-        username: leland
-        password: CSE135leland
+        host: ${{ HOST }}
+        username: ${{ USERNAME }}
+        password: ${{ PASSWORD }}
         source: ./README.txt, ./www/*
         target: /var
         
