@@ -3,9 +3,6 @@ jobs:
   push-to-production:
     runs-on: ubuntu-latest
     steps:
-      - name: push to production
-        with: 
-          script:
-            git add .
-            git commit -m "new commit"
-            git push prod main
+      - run: git add .
+      - run: git commit -m "new commit"
+      - run: git push prod main
