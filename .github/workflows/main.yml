@@ -4,4 +4,3 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: scp -r /Users/lelandbove/Desktop/CSE135 leland@167.71.18.104:/var/ 
-      - run: CSE135leland
