@@ -13,7 +13,6 @@ jobs:
         host: 167.71.18.104
         username: leland
         password: CSE135leland
-        port: 22
         source: ./README.txt, ./www/*
         target: ./var
         
