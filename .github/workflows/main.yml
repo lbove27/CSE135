@@ -10,9 +10,9 @@ jobs:
     - name: copy file via ssh password
       uses: appleboy/scp-action@v0.1.4
       with:
-        host: ${{ HOST }}
-        username: ${{ USERNAME }}
-        password: ${{ PASSWORD }}
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
         source: ./README.txt, ./www/*
         target: /var
         
