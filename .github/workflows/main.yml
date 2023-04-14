@@ -1,7 +1,21 @@
+name: scp files
 on: [push]
 jobs:
-  push-to-production:
+
+  build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
-      - run: scp -r /Users/lelandbove/Desktop/CSE135 leland@167.71.18.104:/var/ 
+    - uses: actions/checkout@v0.1.4
+    - name: copy file via ssh password
+      uses: appleboy/scp-action@v0.1.4
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        source: "README.txt"
+        target: /var
+        
+
 
