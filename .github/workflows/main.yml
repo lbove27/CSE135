@@ -14,7 +14,7 @@ jobs:
         username: leland
         password: CSE135leland
         source: ./README.txt, ./www/*
-        target: ./var
+        target: /var
         
         
 
