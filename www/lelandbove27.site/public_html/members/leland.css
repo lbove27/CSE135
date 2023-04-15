@@ -1,0 +1,29 @@
+img {
+    width:20%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img#dog-image {
+    animation: bounce 1s infinite ease-in-out;
+}
+
+* {
+    background-color: white;
+}
+
+
+@keyframes bounce {
+    0% {
+        transform: translateY(10vh);
+    }
+
+    50% {
+        transform: translateY(-25vh);
+    }
+
+    100% {
+        transform: translateY(10vh);
+    }
+}
