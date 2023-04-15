@@ -20,7 +20,7 @@ img#dog-image {
     }
 
     50% {
-        transform: translateY(-25vh);
+        transform: translateY(-25vh) scaleX(75%) scaleY(125%);
     }
 
     100% {
