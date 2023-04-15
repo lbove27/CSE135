@@ -9,6 +9,11 @@ img#dog-image {
     animation: bounce 1s infinite ease-in-out;
 }
 
+#no-animation {
+    display: none;
+}  
+
+
 * {
     background-color: white;
 }
@@ -20,7 +25,7 @@ img#dog-image {
     }
 
     50% {
-        transform: translateY(-25vh) scaleX(75%) scaleY(125%);
+        transform: translateY(-20vh) scaleX(75%) scaleY(125%);
     }
 
     100% {
