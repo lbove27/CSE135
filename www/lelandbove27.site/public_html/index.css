@@ -1,0 +1,23 @@
+#hw1-list {
+    background-color: aqua;
+}
+
+* {
+    text-align: center;
+}
+
+li {
+    padding: 1vh;
+    border-style:double;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
