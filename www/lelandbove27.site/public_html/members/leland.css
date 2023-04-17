@@ -1,8 +1,11 @@
 * {
     text-align: center;
+    background-image: linear-gradient(to right,red, yellow);
 }
 
-
+button {
+    background-image: linear-gradient(white, white);
+}
 
 
 img {
@@ -16,14 +19,15 @@ img#dog-image {
     animation: bounce 1s infinite ease-in-out;
 }
 
+
+
 #no-animation {
-    display: none;
+    display: block;
 }  
 
-* {
-    background-color: white;
+#animation {
+    display: none;
 }
-
 
 @keyframes bounce {
     0% {
