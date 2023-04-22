@@ -5,13 +5,12 @@ print "Content-type: text/html \n\n";
 # print HTML file top
 print <<END;
 <!DOCTYPE html>
-<html><head><title>GET Request Echo</title>
+<html><head><title>GET Request Echo (leland says hi)</title>
 </head><body><h1 align="center">Get Request Echo</h1>
 <hr>
 END
 
 # The Query String is simply an environment variable
-print "<p>Leland says hi<p>\n";
 print "<b>Query String:</b> $ENV{QUERY_STRING}<br />\n";
 
 # Credit for this code to parse the Query string:
