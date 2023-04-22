@@ -7,8 +7,8 @@ int main(int argc, char **argv, char **envp)
   // Print HTML header
   printf("Cache-Control: no-cache\n");
   printf("Content-type: text/html\n\n");
-  printf("<html><head><title>General Request Echo (leland was here)</title></head> \
-	<body><h1 align=center>General Request Echo</h1> \
+  printf("<html><head><title>General Request Echo</title></head> \
+	<body><h1 align=center>General Request Echo (leland was here)</h1> \
   	<hr/>\n");
 
   // Get environment vars
