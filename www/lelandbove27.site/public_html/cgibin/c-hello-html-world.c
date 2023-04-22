@@ -15,7 +15,7 @@ int main(void)
 
  printf("Hello World<br/>\n");
  printf("This program was generated at: %s\n<br/>", ctime(&t));
- printf("Your current IP address is: %s<br/>", getenv("REMOTE_ADDR"));
+ printf("Leland knows your current IP address is: %s<br/>", getenv("REMOTE_ADDR"));
  
  // Print HTML footer
  printf("</body></html>");

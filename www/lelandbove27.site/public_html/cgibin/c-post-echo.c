@@ -7,7 +7,7 @@ int main(int argc, char **argv, char **envp)
   // Print HTML header
   printf("Cache-Control: no-cache\n");
   printf("Content-type: text/html\n\n");
-  printf("<html><head><title>POST Message Body</title></head>\
+  printf("<html><head><title>POST Message Body (this post was hacked by leland)</title></head>\
 	<body><h1 align=center>POST Message Body</h1>\
   	<hr/>\n");
 

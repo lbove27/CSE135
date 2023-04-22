@@ -54,7 +54,7 @@ int main(int argc, char **argv, char **envp)
 
   // Links for other pages
   printf("<br />");
-  printf("<a href=\"/cgi-bin/c-sessions-2.cgi\">Session Page 2</a>");
+  printf("<a href=\"/cgi-bin/c-sessions-2.cgi\">Session Page 2 (leland got into this session)</a>");
   printf("<br />");
   printf("<a href=\"/c-cgiform.html\">C CGI Form</a>");
   printf("<br /><br />");

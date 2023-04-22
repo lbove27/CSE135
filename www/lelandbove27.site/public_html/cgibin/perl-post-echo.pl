@@ -5,7 +5,7 @@ print "Content-type: text/html \n\n";
 # print HTML file top
 print <<END;
 <!DOCTYPE html>
-<html><head><title>POST Request Echo</title>
+<html><head><title>POST Request Echo </title>
 </head><body><h1 align="center">POST Request Echo</h1>
 <hr>
 END
@@ -28,7 +28,7 @@ if (length ($form_data) > 0){
   }
 }
 
-print "<b>Message Body:</b><br />\n";
+print "<b>Message Body (leland was here):</b><br />\n";
 print "<ul>\n";
 
 #Print out the Query string

@@ -16,7 +16,7 @@ print "<p>Current Time: $date</p>";
 
 # IP Address is an environment variable when using CGI
 $address = $ENV{REMOTE_ADDR};
-print "<p>Your IP Address: $address</p>";
+print "<p>Leland now knows your IP Address: $address</p>";
 
 print "</body>";
 print "</html>";

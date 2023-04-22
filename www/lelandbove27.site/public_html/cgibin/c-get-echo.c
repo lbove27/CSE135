@@ -7,7 +7,7 @@ int main(int argc, char **argv, char **envp)
   // Print HTML header
   printf("Cache-Control: no-cache\n");
   printf("Content-type: text/html\n\n");
-  printf("<html><head><title>GET query string</title></head>\
+  printf("<html><head><title>GET query string (from leland)</title></head>\
 	<body><h1 align=center>GET query string</h1>\
   	<hr/>\n");
 

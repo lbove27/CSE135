@@ -10,7 +10,7 @@ int main(int argc, char **argv, char **envp)
 
   // Body - HTML
   printf("<html>");
-  printf("<head><title>C Session Destroyed</title></head>");
+  printf("<head><title>C Session Destroyed (by leland)</title></head>");
   printf("<body>");
   printf("<h1>C Session Destroyed</h1>");
 
