@@ -11,7 +11,7 @@ print <<END;
 END
 
 # The Query String is simply an environment variable
-print "<p>Leland says hi<p>\n"
+print "<p>Leland says hi<p>\n";
 print "<b>Query String:</b> $ENV{QUERY_STRING}<br />\n";
 
 # Credit for this code to parse the Query string:
