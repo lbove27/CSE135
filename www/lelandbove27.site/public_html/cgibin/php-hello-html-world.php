@@ -5,7 +5,7 @@
     <?php
         echo "Hello World\n";
         echo date();
-        echo 'User IP Address' $_SERVER['REMOTE_ADDR'];
+        echo 'User IP Address'.$_SERVER['REMOTE_ADDR'];
     ?>
 </body>
 </html>
