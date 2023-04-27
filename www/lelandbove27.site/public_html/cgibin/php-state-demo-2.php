@@ -6,6 +6,7 @@
     print "</head>";
     print "<body>";
     print "<h1>PHP Sessions Page 2</h1>";
+    session_name('session-var');
     session_start();
     print "<p>Current session value: " . $_SESSION["session-var"] . "</p>";
     print "<a href='./php-state-demo-1.php'>Page 1</a>";
