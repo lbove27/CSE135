@@ -5,11 +5,7 @@
     print "</head>";
     print "<body>";
     print "<h1>PHP Sessions Page 1</h1>";
-    print "<form action='' method='GET'>";
-    print "<input type='text' name='sessionVal'>";
-    print "<input type='submit' name='submit-form'>";
-    print "</form>";
-    print "<p>Current Session Value: " . $_GET['sessionVal'] . "</p>";
+    print "<p>Current Session Value: " . $_GET['session-var'] . "</p>";
     setcookie("sessionCookie", $_GET['sessionVal']);
     print "<a href='php-state-demo-2.php'>Page 2</a>";
     print "</body>";
