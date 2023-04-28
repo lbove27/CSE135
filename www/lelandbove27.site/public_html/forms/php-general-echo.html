@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>PHP POST Echo Form</title>
+    </head>
+    <body>
+        <h1>PHP POST Echo Form</h1>
+        <h2>Get Request</h2>
+        <form action="../cgibin/php-general-request-echo.php" method="GET">
+            <label for="get-test">Message to send</label>
+            <input type="text" name="get-test">
+            <button type="submit">Submit</button>
+        </form>
+        <h2>Post Request</h2>
+        <form action="../cgibin/php-general-request-echo.php" method="POST">
+            <label for="post-test">Message to send</label>
+            <input type="text" name="post-test">
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>
