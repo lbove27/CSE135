@@ -7,11 +7,11 @@
     print "<h1>PHP Sessions Page 1</h1>";
     session_name('session-var');
     session_start();
-    if($_POST['session-var'] == null) {
-        print "<p>Current Session Value: " . $_SESSION['session-var'] . "</p>";
-    }
-    else if($_POST['session-var'] == null && $_SESSION['session-var'] == null) {
+    if($_POST['session-var'] == '' && $_SESSION['session-var'] == '') {
         print "<p>No value is currently set</p>";
+    }
+    else if($_POST['session-var'] == '') {
+        print "<p>Current Session Value: " . $_SESSION['session-var'] . "</p>";
     }
     else {
         $_SESSION['session-var'] = $_POST['session-var'];
