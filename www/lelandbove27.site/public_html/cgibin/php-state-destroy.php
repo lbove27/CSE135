@@ -5,7 +5,8 @@
     print "</head>";
     print "<body>";
     print "<h1>PHP Session Destroy</h1>";
-    //session_name('session-var');
+    session_name('session-var');
+    session_start();
     session_destroy();
     print "<p>Session has been destroyed.</p>";
     print "<br>";
