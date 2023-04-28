@@ -12,4 +12,4 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.ROOT }}
         password: ${{ secrets.ROOT_PASSWORD }}
-        script: sudo chmod a+x -R /var/www/lelandbove27.site/public_html/cgibin 
+        script: chmod a+x -R /var/www/lelandbove27.site/public_html/cgibin 
