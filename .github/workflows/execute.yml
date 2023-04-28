@@ -10,6 +10,6 @@ jobs:
       uses: appleboy/ssh-action@v0.1.10
       with:
         host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
+        username: ${{ secrets.ROOT }}
+        password: ${{ secrets.ROOT_PASSWORD }}
         script: sudo chmod a+x -R /var/www/lelandbove27.site/public_html/cgibin 
