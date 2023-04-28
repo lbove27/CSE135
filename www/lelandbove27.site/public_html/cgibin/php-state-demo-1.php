@@ -17,9 +17,12 @@
         $_SESSION['session-var'] = $_POST['session-var'];
         print "<p>Current Session Value: " . $_SESSION['session-var'] . "</p>";
     }
+    print "<br>";
     print "<a href='php-state-demo-2.php'>Page 2</a>";
-    print "<a href='../forms/php-state-demo.html'>Back to form</a>\n";
-    print "<form action='./php-state-destroy.php' method=get>\n";
+    print "<br>";
+    print "<a href='../forms/php-state-demo.html'>Back to form</a>";
+    print "<br>";
+    print "<form action='./php-state-destroy.php' method=get>";
     print "<button type='submit' id='destroy-session'>Destroy session</button>";
     print "</form>";
     print "</body>";
