@@ -1,38 +1,21 @@
-jobs: 
-  job1:
-    name: scp files
-    on: [push]
-    jobs:
+name: scp files
+on: [push]
+jobs:
 
-      build:
-        name: Build
-        runs-on: ubuntu-latest
-        steps:
-        - uses: actions/checkout@v3
-        - name: copy file via ssh password
-          uses: appleboy/scp-action@v0.1.4
-          with:
-            host: ${{ secrets.HOST }}
-            username: ${{ secrets.USERNAME }}
-            password: ${{ secrets.PASSWORD }}
-            source: ./README.txt, ./www/*
-            target: /var
-  job2: 
-    name: remote ssh command
-    on: [push]
-    jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: copy file via ssh password
+      uses: appleboy/scp-action@v0.1.4
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        source: ./README.txt, ./www/*
+        target: /var
 
-      build:
-        name: Build
-        runs-on: ubuntu-latest
-        steps:
-        - name: executing remote ssh commands using password
-          uses: appleboy/ssh-action@v0.1.10
-          with:
-            host: ${{ secrets.HOST }}
-            username: ${{ secrets.USERNAME }}
-            password: ${{ secrets.PASSWORD }}
-            script: sudo chmod a+x -R /var/www/lelandbove27.site/public_html/cgibin
-            
+        
 
 
