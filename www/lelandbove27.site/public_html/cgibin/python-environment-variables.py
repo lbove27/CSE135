@@ -10,10 +10,10 @@ print ('</head>');
 print ('<body>');
 print ('<h1>Python Environment Variables</h1>'); 
 print ('<hr>');
-print ('<h2>Environment Variables: ');
+print ('<h2>Environment Variables: </h2>');
 print ('<ul>');
 for key, value in os.environ.items():
-    print ('<li>' + key + ': ' + value + '</li>');
+    print ('<li><b>' + key + ': </b>' + value + '</li>');
 print ('</ul>');
 print ('</body>');
 print ('</html>');
