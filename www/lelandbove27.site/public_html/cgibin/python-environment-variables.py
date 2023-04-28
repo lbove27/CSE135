@@ -13,7 +13,7 @@ print ('<hr>');
 print ('<h2>Environment Variables: ');
 print ('<ul>');
 for key, value in os.environ.items():
-    print ('<li><b>' + key + ':</b>' + value + '</li>');
+    print ('<li>' + key + ': ' + value + '</li>');
 print ('</ul>');
 print ('</body>');
 print ('</html>');
