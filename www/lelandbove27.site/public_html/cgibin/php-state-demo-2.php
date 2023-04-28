@@ -10,6 +10,7 @@
     session_start();
     print "<p>Current session value: " . $_SESSION["session-var"] . "</p>";
     print "<a href='./php-state-demo-1.php'>Page 1</a>";
+    print "<a href='/forms/php-state-demo.html'>Back to form</a>";
     print "</body>";
     print "</html>";
 ?>
