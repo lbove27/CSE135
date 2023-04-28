@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 from datetime import datetime;
+import cgi;
 
 print ("Content-type:text/html\n");
 print ('<html>');
