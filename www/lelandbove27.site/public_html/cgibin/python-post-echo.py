@@ -6,25 +6,18 @@ import os;
 print ("Content-type:text/html\n");
 print ('<html>');
 print ('<head>');
-print ('<title>Python GET Echo</title>');
+print ('<title>Python POST Echo</title>');
 print ('</head>');
 print ('<body>');
-print ('<h1>Python GET Echo</h1>'); 
+print ('<h1>Python POST Echo</h1>'); 
 print ('<hr>');
-#queryStr = os.environ['MESSAGE_BODY'];
-data = sys.stdin.read();
-print(data); 
-for key, value in os.environ.items():
-    print ('<li><b>' + key + ': </b>' + value + '</li>');
 print ('<ul>');
-#params = queryStr.split('&');
-#for param in params: 
-    #keyValuePair = param.split('=');
-    #values = keyValuePair[1].split('+');
-    #finalVal = '';
-    #for val in values:
-        #finalVal += (val + ' ');  
-    #print('<li><b>' + keyValuePair[0] + '</b>: ' + finalVal);
+data = sys.stdin.read();
+value = data.split('=');
+value[1].split('+');
+data_str = '';
+for word in data:
+    data_str += (word + ' ');
 print ('</ul>');       
 print ('</body>');
 print ('</html>');
