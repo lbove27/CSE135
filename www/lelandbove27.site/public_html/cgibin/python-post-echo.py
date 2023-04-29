@@ -18,7 +18,7 @@ values = value[1].split('+');
 data_str = '';
 for word in values:
     data_str += (word + ' ');
-print ('<li>Message body: ' + data_str + '</li>');
+print ('<li><b>Message body: </b>' + data_str + '</li>');
 print ('</ul>');       
 print ('</body>');
 print ('</html>');
