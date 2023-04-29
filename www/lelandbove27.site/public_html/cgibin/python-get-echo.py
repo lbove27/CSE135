@@ -14,13 +14,14 @@ queryStr = os.environ['QUERY_STRING']
 print ('<p>Query String: ' + queryStr + '</p>');
 print ('<ul>');
 params = queryStr.split('&');
-for param in params: 
-    keyValuePair = param.split('=');
-    values = keyValuePair[1].split('+');
-    finalVal = '';
-    for val in values:
-        finalVal += (val + ' ');  
-    print('<li><b>' + keyValuePair[0] + '</b>: ' + finalVal);
+if(len(params) > 1): 
+    for param in params: 
+        keyValuePair = param.split('=');
+        values = keyValuePair[1].split('+');
+        finalVal = '';
+        for val in values:
+            finalVal += (val + ' ');  
+        print('<li><b>' + keyValuePair[0] + '</b>: ' + finalVal);
 print ('</ul>');       
 print ('</body>');
 print ('</html>');
