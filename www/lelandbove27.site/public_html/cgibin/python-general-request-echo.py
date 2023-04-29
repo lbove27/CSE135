@@ -29,8 +29,8 @@ for param in params:
 print ('</ul>');
 print ('<hr>');
 print ('<ul>');
-data = sys.stdin.read();
-postvalue = data.split('=');
+postdata = sys.stdin.read();
+postvalue = postdata.split('=');
 postvalues = postvalue[1].split('+');
 data_str = '';
 for word in postvalues:
