@@ -30,6 +30,7 @@ print ('</ul>');
 print ('<hr>');
 print ('<ul>');
 postdata = sys.stdin.read();
+print (postdata);
 postvalue = postdata.split('=');
 postvalues = postvalue[1].split('+');
 data_str = '';
