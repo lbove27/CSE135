@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import sys;
 import os;
  
 print ("Content-type:text/html\n");
@@ -11,6 +12,8 @@ print ('<body>');
 print ('<h1>Python GET Echo</h1>'); 
 print ('<hr>');
 #queryStr = os.environ['MESSAGE_BODY'];
+data = sys.stdin.read();
+print(data); 
 for key, value in os.environ.items():
     print ('<li><b>' + key + ': </b>' + value + '</li>');
 print ('<ul>');
