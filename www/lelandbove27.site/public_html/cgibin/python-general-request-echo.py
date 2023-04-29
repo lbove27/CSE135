@@ -32,11 +32,11 @@ print ('<ul>');
 postdata = sys.stdin.read();
 print (postdata);
 postvalue = postdata.split('=');
-postvalues = postvalue[1].split('+');
-data_str = '';
-for word in postvalues:
-    data_str += (word + ' ');
-print ('<li><b>Message body: </b>' + data_str + '</li>');
+#postvalues = postvalue[1].split('+');
+#data_str = '';
+#for word in postvalues:
+    #data_str += (word + ' ');
+#print ('<li><b>Message body: </b>' + data_str + '</li>');
 print ('</ul>');       
 print ('</body>');
 print ('</html>');
