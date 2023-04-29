@@ -12,9 +12,10 @@ print ('<body>');
 print ('<h1>Python General Request Echo</h1>'); 
 print ('<hr>');
 print ('<p>Request Method: ' + os.environ['REQUEST_METHOD'] + '</p>');
+print ('<hr>');
 print ('<p>Protocol: ' + os.environ['SERVER_PROTOCOL'] + '</p>');
 print ('<hr>');
-queryStr = os.environ['QUERY_STRING']
+queryStr = os.environ['QUERY_STRING'];
 print ('<p>Query String: ' + queryStr + '</p>');
 print ('<ul>');
 params = queryStr.split('&');
@@ -29,10 +30,10 @@ print ('</ul>');
 print ('<hr>');
 print ('<ul>');
 data = sys.stdin.read();
-value = data.split('=');
-values = value[1].split('+');
+postvalue = data.split('=');
+postvalues = postvalue[1].split('+');
 data_str = '';
-for word in values:
+for word in postvalues:
     data_str += (word + ' ');
 print ('<li><b>Message body: </b>' + data_str + '</li>');
 print ('</ul>');       
