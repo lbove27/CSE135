@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Python General Request Echo Form</title>
+    </head>
+    <body>
+        <h1>Python General Request Echo Form</h1>
+        <hr>
+        <h2>Get</h2>
+        <form action="../cgibin/python-general-request-echo.py" method="GET">
+            <label for="Query-String">Message to send</label>
+            <input type="text" name="Query-String">
+            <button type="submit">GET</button>
+        </form>
+        <hr>
+        <h2>Post</h2>
+        <form action="../cgibin/python-general-request-echo.py" method="POST">
+            <label for="Message-Body">Message to send</label>
+            <input type="text" name="Message-Body">
+            <button type="submit">POST</button>
+        </form>
+    </body>
+</html>
