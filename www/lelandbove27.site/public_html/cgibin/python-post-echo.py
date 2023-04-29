@@ -14,9 +14,9 @@ print ('<hr>');
 print ('<ul>');
 data = sys.stdin.read();
 value = data.split('=');
-value[1].split('+');
+values = value[1].split('+');
 data_str = '';
-for word in data:
+for word in values:
     data_str += (word + ' ');
 print ('<li>Message body: ' + data_str + '</li>');
 print ('</ul>');       
