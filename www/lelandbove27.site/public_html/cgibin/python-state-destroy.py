@@ -17,8 +17,5 @@ print ('<a href=../cgibin/python-state-demo-1.py>Page 1</a>');
 print ('<br>');
 print ('<a href=../cgibin/python-state-demo-2.py>Page 2</a>');
 print ('<br>');
-print ("<form action='./php-state-destroy.php' method=get>");
-print ("<button type='submit' id='destroy-session'>Destroy session</button>");
-print ("</form>");
 print ('</body>');
 print ('</html>');

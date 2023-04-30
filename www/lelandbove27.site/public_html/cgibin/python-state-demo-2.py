@@ -31,7 +31,7 @@ print ('<a href=../forms/python-state-demo.html?' + dirtyurl + '>Back to form</a
 print ('<br>');
 print ('<a href=../cgibin/python-state-demo-1.py?' + dirtyurl + '>Page 1</a>');
 print ('<br>');
-print ("<form action='./python-state-destroy.php' method=get>");
+print ("<form action='./python-state-destroy.py' method=get>");
 print ("<button type='submit' id='destroy-session'>Destroy session</button>");
 print ("</form>");
 print ('</body>');
