@@ -10,6 +10,7 @@ process.stdout.write("<body>");
 process.stdout.write("<h1>Node Hello HTML World</h1>");
 process.stdout.write("<p>Hello World!</p>");
 process.stdout.write("<p>IP address: " + process.env + "</p>");
+console.log(process.env);
 process.stdout.write("</body>");
 process.stdout.write("</html>");
 
