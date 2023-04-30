@@ -14,7 +14,7 @@ queryStr = os.environ['QUERY_STRING']
 print ('<p>Query String: ' + queryStr + '</p>');
 print ('<ul>');
 params = queryStr.split('&');
-if(len(params) >= 1 and len(params) > 0): 
+if(len(params) >= 1 and not (queryStr == '')): 
     for param in params: 
         keyValuePair = param.split('=');
         if(len(keyValuePair) < 2):
