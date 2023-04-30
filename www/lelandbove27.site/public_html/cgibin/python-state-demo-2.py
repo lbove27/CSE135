@@ -25,6 +25,7 @@ else:
     qstr = os.environ['QUERY_STRING'];
     val = qstr.split('=');
     print ('<p>Your name: ' + val[1]);
+    dirtyurl = qstr;
 print ('<hr>');
 print ('<a href=../forms/python-state-demo.html?' + dirtyurl + '>Back to form</a>');
 print ('<br>');
