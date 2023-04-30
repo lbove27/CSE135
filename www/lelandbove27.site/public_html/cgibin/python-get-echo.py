@@ -17,6 +17,9 @@ params = queryStr.split('&');
 if(len(params) >= 1): 
     for param in params: 
         keyValuePair = param.split('=');
+        if(len(keyValuePair) < 2):
+            print('<li><b>' + keyValuePair[0] + '</b>: ');
+            break;
         values = keyValuePair[1].split('+');
         finalVal = '';
         for val in values:
