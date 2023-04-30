@@ -19,7 +19,7 @@ queryStr = os.environ['QUERY_STRING'];
 print ('<p>Query String: ' + queryStr + '</p>');
 print ('<ul>');
 params = queryStr.split('&');
-if(len(params) >= 1): 
+if(len(params) >= 1 and len(params) > 0): 
     for param in params: 
         keyValuePair = param.split('=');
         if(len(keyValuePair) < 2):
@@ -34,7 +34,6 @@ print ('</ul>');
 print ('<hr>');
 print ('<ul>');
 postdata = sys.stdin.read();
-print (postdata);
 postvalue = postdata.split('=');
 postvalues = postvalue[1].split('+');
 data_str = '';
