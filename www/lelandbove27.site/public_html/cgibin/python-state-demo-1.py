@@ -11,13 +11,23 @@ print ('</head>');
 print ('<body>');
 print ('<h1>Python State Demo Page 1</h1>'); 
 print ('<hr>');
+dirtyurl = '';
 data = sys.stdin.read();
-dirtyname = data.split('=');
-cleanname = dirtyname[1].split('+');
-name = '';
-for part in cleanname:
-    name += part + ' ';
-print ('<p>Your name: ' + name + '</p>');
-
+if(data != ''):
+    dirtyurl = data;
+    dirtyname = data.split('=');
+    cleanname = dirtyname[1].split('+');
+    name = '';
+    for part in cleanname:
+        name += part + ' ';
+    print ('<p>Your name: ' + name + '</p>');
+else:
+    qstr = os.environ['QUERY_STRING'];
+    val = qstr.split('=');
+    print ('<p>Your name: ' + val[1]);
+print ('<hr>');
+print ('<a href=python-state-demo.html' + dirtyurl + '>Back to form</a>');
+print ('<br>');
+print ('<a href=python-state-demo-2.py' + dirtyurl + '>Page 2</a>');
 print ('</body>');
 print ('</html>');
