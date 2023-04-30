@@ -13,7 +13,7 @@ print ('<h1>Python State Demo Page 1</h1>');
 print ('<hr>');
 data = sys.stdin.read();
 dirtyname = data.split('=');
-cleanname = dirtyname.split('+');
+cleanname = dirtyname[1].split('+');
 name = '';
 for part in cleanname:
     name += part + ' ';
