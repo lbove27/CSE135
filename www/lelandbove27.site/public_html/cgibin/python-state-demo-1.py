@@ -11,8 +11,8 @@ print ('</head>');
 print ('<body>');
 print ('<h1>Python State Demo Page 1</h1>'); 
 print ('<hr>');
-querystr = os.environ['QUERY_STRING'];
-dirtyname = querystr.split('=');
+data = sys.stdin.read();
+dirtyname = data.split('=');
 cleanname = dirtyname.split('+');
 name = '';
 for part in cleanname:
