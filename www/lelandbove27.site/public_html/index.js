@@ -1,3 +1,6 @@
+import LogRocket from 'logrocket';
+LogRocket.init('aosyiw/lelandbove27site');
+
 let light = document.getElementById('light-mode');
 light.addEventListener('click', () => {
     let body = document.getElementsByTagName('body')[0];
