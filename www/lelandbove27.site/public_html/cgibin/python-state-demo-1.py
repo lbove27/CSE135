@@ -26,8 +26,8 @@ else:
     val = qstr.split('=');
     print ('<p>Your name: ' + val[1]);
 print ('<hr>');
-print ('<a href=python-state-demo.html' + dirtyurl + '>Back to form</a>');
+print ('<a href=../forms/python-state-demo.html' + dirtyurl + '>Back to form</a>');
 print ('<br>');
-print ('<a href=python-state-demo-2.py' + dirtyurl + '>Page 2</a>');
+print ('<a href=../cgibin/python-state-demo-2.py' + dirtyurl + '>Page 2</a>');
 print ('</body>');
 print ('</html>');
