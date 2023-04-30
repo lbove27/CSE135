@@ -19,25 +19,28 @@ queryStr = os.environ['QUERY_STRING'];
 print ('<p>Query String: ' + queryStr + '</p>');
 print ('<ul>');
 params = queryStr.split('&');
-if(len(params) >= 1):
+if(len(params) >= 1): 
     for param in params: 
         keyValuePair = param.split('=');
+        if(len(keyValuePair) < 2):
+            print('<li><b>' + keyValuePair[0] + '</b>: ');
+            continue;
         values = keyValuePair[1].split('+');
         finalVal = '';
         for val in values:
             finalVal += (val + ' ');  
         print('<li><b>' + keyValuePair[0] + '</b>: ' + finalVal);
-print ('</ul>');
+print ('</ul>'); 
 print ('<hr>');
 print ('<ul>');
 postdata = sys.stdin.read();
 print (postdata);
 postvalue = postdata.split('=');
-#postvalues = postvalue[1].split('+');
-#data_str = '';
-#for word in postvalues:
-    #data_str += (word + ' ');
-#print ('<li><b>Message body: </b>' + data_str + '</li>');
+postvalues = postvalue[1].split('+');
+data_str = '';
+for word in postvalues:
+    data_str += (word + ' ');
+print ('<li><b>Message body: </b>' + data_str + '</li>');
 print ('</ul>');       
 print ('</body>');
 print ('</html>');
