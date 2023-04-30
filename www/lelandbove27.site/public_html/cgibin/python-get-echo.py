@@ -19,7 +19,7 @@ if(len(params) >= 1):
         keyValuePair = param.split('=');
         if(len(keyValuePair) < 2):
             print('<li><b>' + keyValuePair[0] + '</b>: ');
-            break;
+            continue;
         values = keyValuePair[1].split('+');
         finalVal = '';
         for val in values:
