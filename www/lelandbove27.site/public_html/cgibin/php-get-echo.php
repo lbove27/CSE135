@@ -4,7 +4,8 @@
     print "<head><title>PHP GET Echo</title></head>";
     print "<body>";
     print "<h1>PHP GET Echo</h1>";
-    print "<p>Query String: " . $_SERVER['QUERY_STRING'] . "</p>";
+    print "<hr>";
+    print "<p><b>Query String: </b>" . $_SERVER['QUERY_STRING'] . "</p>";
     print "<ul>";
     $queries = [];
     parse_str($_SERVER['QUERY_STRING'], $queries);

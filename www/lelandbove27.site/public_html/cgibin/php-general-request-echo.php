@@ -8,19 +8,19 @@
         <?php
          print "<p>Request Method: " . $_SERVER["REQUEST_METHOD"] . "</p>";
          print "<p>Protocol: " . $_SERVER["SERVER_PROTOCOL"] . "</p>";
-         print "<p>Query String: " . $_SERVER['QUERY_STRING'] . "</p>";
+         print "<p><b>Query String: </b>" . $_SERVER['QUERY_STRING'] . "</p>";
          print "<ul>";
          if($_SERVER["REQUEST_METHOD"] == "GET") {
             foreach($_REQUEST as $query => $value) {
-                print "<li> $query: $value </li>";
+                print "<li> <b>$query: </b>$value </li>";
             }
          }  
          print "</ul>";
-         print "<p>Message Body: </p>";
+         print "<p><b>Message Body: </b></p>";
          print "<ul>";
          if($_SERVER["REQUEST_METHOD"] == "POST") {
             foreach($_REQUEST as $query => $value) {
-                print "<li> $query: $value </li>";
+                print "<li> <b>$query:</b> $value </li>";
             }
          }  
          print "</ul>";
