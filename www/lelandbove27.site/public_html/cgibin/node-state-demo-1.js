@@ -23,16 +23,16 @@ if(postStr != '') {
         finalName += (word + ' ');
     }
     dirtyUrl = "?" + postStr;
-    print("<p>Your name is: " + finalName + "</p>");
+    process.stdout.write("<p>Your name is: " + finalName + "</p>");
 }
 else {
     let qStr = process.env.QUERY_STRING;
     let finalName = querystring.parse(qStr)[1];
-    print("<p>Your name is: " + finalName + "</p>");
+    process.stdout.write("<p>Your name is: " + finalName + "</p>");
     dirtyUrl = "?" + qStr;
 }
-print("<a href='../cgibin/node-state-demo-2.js" + dirtyUrl + "'>Page 2</a>");
-print("<a href='../forms/node-state-demo.html" + dirtyUrl + "'>Back to form</a>");
+process.stdout.write("<a href='../cgibin/node-state-demo-2.js" + dirtyUrl + "'>Page 2</a>");
+process.stdout.write("<a href='../forms/node-state-demo.html" + dirtyUrl + "'>Back to form</a>");
 
 
 process.stdout.write("</body>");
