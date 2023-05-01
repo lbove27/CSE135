@@ -8,10 +8,10 @@ process.stdout.write("Content-Type: text/html\r\n\r\n");
 process.stdout.write("<!DOCTYPE html>");
 process.stdout.write("<html lang='en'>");
 process.stdout.write("<head>");
-process.stdout.write("<title>Node State Demo Page 1</title>");
+process.stdout.write("<title>Node State Demo Page 2</title>");
 process.stdout.write("</head>");
 process.stdout.write("<body>");
-process.stdout.write("<h1>Node State Demo Page 1</h1>");
+process.stdout.write("<h1>Node State Demo Page 2</h1>");
 process.stdout.write("<hr>");
 let dirtyUrl = '';
 let postStr = fs.readFileSync(0).toString();
@@ -31,7 +31,7 @@ else {
     process.stdout.write("<p>Your name is: " + finalName + "</p>");
     dirtyUrl = "?" + qStr;
 }
-process.stdout.write("<a href='../cgibin/node-state-demo-2.js" + dirtyUrl + "'>Page 2</a>");
+process.stdout.write("<a href='../cgibin/node-state-demo-1.js" + dirtyUrl + "'>Page 1</a>");
 console.log("<br>");
 process.stdout.write("<a href='../forms/node-state-demo.html" + dirtyUrl + "'>Back to form</a>");
 process.stdout.write("<form>");
