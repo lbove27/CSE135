@@ -12,7 +12,7 @@
         print "<p>No value is currently set</p>";
     }
     else {
-        print "<p>Current Session Value: " . $_SESSION["session-var"] . "</p>";
+        print "<p>Your name: " . $_SESSION["session-var"] . "</p>";
     }
     print "<br>";
     print "<a href='./php-state-demo-1.php'>Page 1</a>\n";

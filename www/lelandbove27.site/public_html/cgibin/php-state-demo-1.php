@@ -11,11 +11,11 @@
         print "<p>No value is currently set</p>";
     }
     else if($_POST['session-var'] == '') {
-        print "<p>Current Session Value: " . $_SESSION['session-var'] . "</p>";
+        print "<p>Your name: " . $_SESSION['session-var'] . "</p>";
     }
     else {
         $_SESSION['session-var'] = $_POST['session-var'];
-        print "<p>Current Session Value: " . $_SESSION['session-var'] . "</p>";
+        print "<p>Your name: " . $_SESSION['session-var'] . "</p>";
     }
     print "<br>";
     print "<a href='php-state-demo-2.php'>Page 2</a>";
