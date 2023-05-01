@@ -11,4 +11,4 @@
         print "<p>User IP Address: " . $_SERVER["REMOTE_ADDR"] . "</p>";
     ?>
 </body>
-</html>
+</html> 
