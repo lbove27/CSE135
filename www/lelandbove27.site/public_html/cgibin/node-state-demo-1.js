@@ -20,7 +20,7 @@ if(postStr != '') {
     console.log(name);
     let spacedName = name.split('+');
     console.log(spacedName);
-    finalName = '';
+    let finalName = '';
     for(let word in spacedName) {
         finalName += (word + ' ');
     }
