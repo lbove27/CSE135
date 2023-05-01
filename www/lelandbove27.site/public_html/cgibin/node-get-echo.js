@@ -13,6 +13,7 @@ qStr = process.env.QUERY_STRING;
 process.stdout.write("<p><b>Query string: </b>" + qStr + "</p>");
 process.stdout.write("<ul>");
 values = qStr.parse();
+console.log(values);
 for(let val in values) {
     process.stdout.write("<li><b>" + val + ":</b> " + values[val] + "</li>");
 }
