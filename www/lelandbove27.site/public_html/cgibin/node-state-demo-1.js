@@ -17,11 +17,14 @@ let dirtyUrl = '';
 let postStr = fs.readFileSync(0).toString();
 if(postStr != '') {
     let name = postStr.split('=')[1];
+    console.log(name);
     let spacedName = name.split('+');
+    console.log(spacedName);
     finalName = '';
     for(let word in spacedName) {
         finalName += (word + ' ');
     }
+    console.log(finalName);
     dirtyUrl = "?" + postStr;
     process.stdout.write("<p>Your name is: " + finalName + "</p>");
 }
