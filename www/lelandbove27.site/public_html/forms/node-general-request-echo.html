@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Node General Request Echo Form</title>
+    </head>
+    <body>
+        <h1>Node General Request Echo Form</h1>
+        <h2>Get Request</h2>
+        <form action="../cgibin/node-general-request-echo.js" method="GET">
+            <label for="Query-String-Sent">Message to send</label>
+            <input type="text" name="Query-String-Sent">
+            <button type="submit">Submit</button>
+        </form>
+        <h2>Post Request</h2>
+        <form action="../cgibin/node-general-request-echo.js" method="POST">
+            <label for="Message-Body">Message to send</label>
+            <input type="text" name="Message-Body">
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>
