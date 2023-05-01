@@ -12,11 +12,9 @@ process.stdout.write("<body>");
 process.stdout.write("<h1>Node GET Echo</h1>");
 process.stdout.write("<hr>");
 qStr = process.env.QUERY_STRING;
-console.log(qStr);
 process.stdout.write("<p><b>Query string: </b>" + qStr + "</p>");
 process.stdout.write("<ul>");
 values = querystring.parse(qStr);
-console.log(values);
 for(let val in values) {
     process.stdout.write("<li><b>" + val + ":</b> " + values[val] + "</li>");
 }
