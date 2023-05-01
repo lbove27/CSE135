@@ -24,7 +24,11 @@ if(data != ''):
 else:
     qstr = os.environ['QUERY_STRING'];
     val = qstr.split('=');
-    print ('<p>Your name: ' + val[1]);
+    cleanname = val[1].split('+');
+    name = '';
+    for part in cleanname:
+        name += part + ' ';
+    print ('<p>Your name: ' + name);
     dirtyurl = qstr;
 print ('<hr>');
 print ('<a href=../forms/python-state-demo.html?' + dirtyurl + '>Back to form</a>');
