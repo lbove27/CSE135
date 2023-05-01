@@ -28,9 +28,7 @@ if(postStr != '') {
 else {
     let qStr = process.env.QUERY_STRING;
     let personName = querystring.parse(qStr);
-    console.log(qStr);
-    console.log(personName);
-    process.stdout.write("<p>Your name is: " + personName + "</p>");
+    process.stdout.write("<p>Your name is: " + personName['session-var'] + "</p>");
     dirtyUrl = "?" + qStr;
 }
 process.stdout.write("<a href='../cgibin/node-state-demo-1.js" + dirtyUrl + "'>Page 1</a>");
