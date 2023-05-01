@@ -11,7 +11,7 @@ process.stdout.write("<h1>Node Environment Variables</h1>");
 process.stdout.write("<hr>");
 process.stdout.write("<ul>");
 for(let property in process.env) {
-    process.stdout.write("<li><b>" + property + "</b>" +  process.env[property] + "</li>");
+    process.stdout.write("<li><b>" + property + ": </b>" +  process.env[property] + "</li>");
 }
 process.stdout.write("</ul>");
 process.stdout.write("</body>");
