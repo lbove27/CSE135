@@ -27,8 +27,10 @@ if(postStr != '') {
 }
 else {
     let qStr = process.env.QUERY_STRING;
-    let finalName = querystring.parse(qStr)[1];
-    process.stdout.write("<p>Your name is: " + finalName + "</p>");
+    let personName = querystring.parse(qStr)[1];
+    console.log(qStr);
+    console.log(finalName)
+    process.stdout.write("<p>Your name is: " + personName + "</p>");
     dirtyUrl = "?" + qStr;
 }
 process.stdout.write("<a href='../cgibin/node-state-demo-1.js" + dirtyUrl + "'>Page 1</a>");
