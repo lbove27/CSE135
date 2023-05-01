@@ -27,9 +27,9 @@ if(postStr != '') {
 }
 else {
     let qStr = process.env.QUERY_STRING;
-    let personName = querystring.parse(qStr)[1];
+    let personName = querystring.parse(qStr);
     console.log(qStr);
-    console.log(finalName)
+    console.log(personName);
     process.stdout.write("<p>Your name is: " + personName + "</p>");
     dirtyUrl = "?" + qStr;
 }
