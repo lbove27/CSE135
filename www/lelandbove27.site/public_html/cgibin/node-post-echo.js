@@ -2,8 +2,6 @@
 
 const { appendFile } = require('node:fs');
 const querystring = require('node:querystring'); 
-const stdin = require('node:process');
-const readline = require('readline');
 var fs = require("fs");
 
 process.stdout.write("Content-Type: text/html\r\n\r\n");
