@@ -30,7 +30,7 @@ process.stdout.write("<p><b>Message Body: </b></p>");
 process.stdout.write("<ul>");
 postvalues = querystring.parse(stdin);
 for(let val in postvalues) {
-    process.stdout.write("<li><b>" + val + ":</b> " + values[val] + "</li>");
+    process.stdout.write("<li><b>" + val + ":</b> " + postvalues[val] + "</li>");
 }
 process.stdout.write("</ul>");
 process.stdout.write("</body>");
