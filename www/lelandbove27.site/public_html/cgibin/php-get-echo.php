@@ -5,11 +5,13 @@
     print "<body>";
     print "<h1>PHP GET Echo</h1>";
     print "<p>Query String: " . $_SERVER['QUERY_STRING'] . "</p>";
+    print "<ul>";
     $queries = [];
     parse_str($_SERVER['QUERY_STRING'], $queries);
     foreach($_GET as $query => $value) {
-        print "<p> $query: $value </p>";
+        print "<li> <b>$query</b>: $value </li>";
     }
+    print "</ul>";
     print "</body>";
     print "</html>";
 ?>
