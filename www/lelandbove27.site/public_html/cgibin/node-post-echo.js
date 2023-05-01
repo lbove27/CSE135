@@ -13,7 +13,6 @@ process.stdout.write("</head>");
 process.stdout.write("<body>");
 process.stdout.write("<h1>Node POST Echo</h1>");
 process.stdout.write("<hr>");
-//messageBody = process.stdin.read();
 let stdin = fs.readFileSync(0).toString();
 process.stdout.write("<p><b>Message Body: </b></p>");
 process.stdout.write("<ul>");
