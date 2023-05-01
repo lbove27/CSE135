@@ -13,7 +13,7 @@
     print "</ul>";
     print "<h2>Server Variables</h2>";
     foreach($_SERVER as $key => $val) {
-        print "<li>$key: $val</li>";
+        print "<li><b>$key:</b> $val</li>";
     }
     print "</body>";
     print "</html>";
