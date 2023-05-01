@@ -34,8 +34,8 @@ else {
 process.stdout.write("<a href='../cgibin/node-state-demo-1.js" + dirtyUrl + "'>Page 1</a>");
 console.log("<br>");
 process.stdout.write("<a href='../forms/node-state-demo.html" + dirtyUrl + "'>Back to form</a>");
-process.stdout.write("<form>");
-process.stdout.write("<button action='../cgibin/node-state-destroy.js'>Destroy Session</button>");
+process.stdout.write("<form action='../cgibin/node-state-destroy.js'>");
+process.stdout.write("<button type='sumbit'>Destroy Session</button>");
 process.stdout.write("</form>");
 process.stdout.write("</body>");
 process.stdout.write("</html>");
