@@ -21,8 +21,8 @@ if(postStr != '') {
     let spacedName = name.split('+');
     console.log(spacedName);
     let finalName = '';
-    for(let word in spacedName) {
-        finalName += (word + ' ');
+    for(let val in spacedName) {
+        finalName += (spacedName[val] + ' ');
     }
     console.log(finalName);
     dirtyUrl = "?" + postStr;
@@ -36,7 +36,8 @@ else {
 }
 process.stdout.write("<a href='../cgibin/node-state-demo-2.js" + dirtyUrl + "'>Page 2</a>");
 process.stdout.write("<a href='../forms/node-state-demo.html" + dirtyUrl + "'>Back to form</a>");
-
-
+process.stdout.write("<form>");
+process.stdout.write("<button action='../cgibin/node-state-destroy.js'>Destroy Session</button>");
+process.stdout.write("</form>");
 process.stdout.write("</body>");
 process.stdout.write("</html>");
