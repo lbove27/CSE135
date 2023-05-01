@@ -22,7 +22,7 @@
     print "<br>";
     print "<a href='../forms/php-state-demo.html'>Back to form</a>";
     print "<br>";
-    print "<form action='./python-state-destroy.py' method=get>";
+    print "<form action='./php-state-destroy.py' method=get>";
     print "<button type='submit' id='destroy-session'>Destroy session</button>";
     print "</form>";
     print "</body>";
