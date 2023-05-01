@@ -8,7 +8,7 @@
     print "<h2>Environment Variables</h2>";
     print "<ul>";
     foreach(getEnv() as $key => $val) {
-        print "<li>$key: $val</li>";
+        print "<li><b>$key:</b> $val</li>";
     }
     print "</ul>";
     print "<h2>Server Variables</h2>";
