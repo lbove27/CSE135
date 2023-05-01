@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+const querystring = require('node:querystring'); 
+
 process.stdout.write("Content-Type: text/html\r\n\r\n");
 process.stdout.write("<!DOCTYPE html>");
 process.stdout.write("<html lang='en'>");
@@ -13,7 +15,7 @@ qStr = process.env.QUERY_STRING;
 console.log(qStr);
 process.stdout.write("<p><b>Query string: </b>" + qStr + "</p>");
 process.stdout.write("<ul>");
-values = qStr.decode();
+values = querystring.parse(qStr);
 console.log(values);
 for(let val in values) {
     process.stdout.write("<li><b>" + val + ":</b> " + values[val] + "</li>");
