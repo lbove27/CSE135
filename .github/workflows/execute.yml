@@ -16,4 +16,4 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.ROOT }}
         password: ${{ secrets.ROOT_PASSWORD }}
-        script: chmod a+x -R /var/www/lelandbove27.site/public_html/cgibin; chmod 666 db.json;
+        script: chmod a+x -R /var/www/lelandbove27.site/public_html/cgibin; chmod 666 /var/www/lelandbove27.site/public_html/db.json;
