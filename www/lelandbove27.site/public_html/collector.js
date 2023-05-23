@@ -1,4 +1,5 @@
 //Figure out if images are enabled
+console.log("updated");
 function imagesOn() {
     var pixel = new Image();
     pixel.src = 'clear.png';
