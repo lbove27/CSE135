@@ -133,7 +133,7 @@ let counter;
 
 function startTimer() {
     counter = setInterval(() => {
-        time += 1000;
+        time += 1000; 
     }, 1000);
 }
 
