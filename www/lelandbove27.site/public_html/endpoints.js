@@ -28,6 +28,9 @@ const client = new MongoClient(uri, {
 const express = require('express');
 const app = express();
 const port = 3001;
+const bodyParser = require('body-parser');
+const jsonParser = bodyParser.json();
+
 
 app.get("/", (req, res) => {
   console.log('testing if this updated');
@@ -37,8 +40,9 @@ app.get("/", (req, res) => {
   res.send("Hello world it workssssss");
 });
 
-app.post("/static", (req, res) => {
+app.post("/static", jsonParser, (req, res) => {
     console.log('it worked');
+    console.log(req.body);
 });
 
 //posting additional data like when the user entered, exited, and which page
