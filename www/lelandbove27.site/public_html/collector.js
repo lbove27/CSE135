@@ -3,10 +3,11 @@ function imagesOn() {
     var pixel = new Image();
     pixel.src = 'clear.png';
     
-    $(document).ready(pixel.onload = () => {
-        if (pixel.width > 0) {
-            document.body.className += (document.body.className != '') ? ' enabled' : 'enabled';
-        }
+    $(document).load(
+        pixel.onload = () => {
+            if (pixel.width > 0) {
+                document.body.className += (document.body.className != '') ? ' enabled' : 'enabled';
+            }
     });
     
 }
