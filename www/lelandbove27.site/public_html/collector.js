@@ -5,14 +5,12 @@ function imagesOn() {
     pixel.src = 'clear.png';
     
     $(document).ready(
-        $(function() {
-            pixel.onload(() => {
-                if (pixel.width > 0) {
-                    document.body.className += (document.body.className != '') ? ' enabled' : 'enabled';
-                }
-            });
-    }));
-    
+        $(pixel).on('load', function() {
+            if (pixel.width > 0) {
+                document.body.className += (document.body.className != '') ? ' enabled' : 'enabled';
+            }
+        })
+    )
 }
 imagesOn();
 
