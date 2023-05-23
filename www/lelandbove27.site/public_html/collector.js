@@ -4,11 +4,11 @@ function imagesOn() {
     pixel.src = 'clear.png';
     
     $(document).load(
-        pixel.onload = () => {
+        pixel.on('load', function() {
             if (pixel.width > 0) {
                 document.body.className += (document.body.className != '') ? ' enabled' : 'enabled';
             }
-    });
+    }));
     
 }
 imagesOn();
