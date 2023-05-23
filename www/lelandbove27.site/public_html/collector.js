@@ -4,11 +4,13 @@ function imagesOn() {
     var pixel = new Image();
     pixel.src = 'clear.png';
     
-    $(document).load(
-        $(pixel).on('load', function() {
-            if (pixel.width > 0) {
-                document.body.className += (document.body.className != '') ? ' enabled' : 'enabled';
-            }
+    $(document).ready(
+        $(function() {
+            pixel.onload(() => {
+                if (pixel.width > 0) {
+                    document.body.className += (document.body.className != '') ? ' enabled' : 'enabled';
+                }
+            });
     }));
     
 }
