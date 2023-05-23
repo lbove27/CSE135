@@ -25,3 +25,7 @@ main {
     flex-direction: column;
     justify-content: space-evenly;
 }
+
+#css-check {
+    display: none;
+}

@@ -41,4 +41,9 @@ app.post("/static", (req, res) => {
     console.log('it worked');
 });
 
+//posting additional data like when the user entered, exited, and which page
+app.post("/additionalInfo", (req, res) => {
+
+});
+
 app.listen(port, () => console.log('Listening on port ' + port));
