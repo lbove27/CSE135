@@ -1,3 +1,14 @@
+//initialize local storage objects
+let staticDataObj = { 'data': [] };
+let activityDataObj = { 
+    'errors': [],
+    'mouseActivity': [],
+    'keyboardActivity': [],
+    'idleTime': []
+};
+localStorage.setItem("staticData", JSON.stringify(staticDataObj));
+localStorage.setItem("activityData", JSON.stringify(activityDataObj));
+
 //Figure out if images are enabled
 console.log("updated");
 function imagesOn() {
@@ -168,3 +179,14 @@ window.addEventListener('unload', (event) => {
 });
 
 
+
+
+//send data / store in local storage / retrieve from local storage every minute 
+setInterval(function() {
+
+
+
+    //send static data
+
+
+}, 60000); 
