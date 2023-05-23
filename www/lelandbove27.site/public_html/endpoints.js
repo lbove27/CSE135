@@ -40,9 +40,22 @@ app.get("/", (req, res) => {
   res.send("Hello world it workssssss");
 });
 
+//Get all
+app.get("/static", (req, res) => {
+
+});
+
 app.post("/static", jsonParser, (req, res) => {
-    console.log('it worked');
-    console.log(req.body);
+  console.log('it worked');
+  console.log(req.body);
+});
+
+app.get("/activity", (req, res) => {
+  
+});
+
+app.post("/activity", (req, res) => {
+
 });
 
 //posting additional data like when the user entered, exited, and which page
