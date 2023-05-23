@@ -31,13 +31,18 @@ const port = 3001;
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
 
-
+//Test (can delete)
 app.get("/", (req, res) => {
   console.log('testing if this updated');
   //Test mongodb
   run().catch(console.dir);
   console.log('why is it not working');
   res.send("Hello world it workssssss");
+});
+
+//Get for if javascript is not available 
+app.get("/nojs", (req, res) => {
+
 });
 
 //Get all
