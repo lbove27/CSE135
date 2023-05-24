@@ -1,5 +1,5 @@
 //MongoDB Stuff
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const uri = "mongodb+srv://lbove:tHpwlEOR0dxptTgt@cluster0.lbkxxfj.mongodb.net/?retryWrites=true&w=majority";
 
 const client = new MongoClient(uri, {
@@ -12,14 +12,10 @@ const client = new MongoClient(uri, {
 
   async function run() {
     try {
-      // Connect the client to the server	(optional starting in v4.7)
       await client.connect();
-      // Send a ping to confirm a successful connection
       await client.db("admin").command({ ping: 1 });
       console.log("Pinged your deployment. You successfully connected to MongoDB!");
-      await client.db("CSE135").collection("StaticData").insertOne({ 'hello': 'there'});
     } finally {
-      // Ensures that the client will close when you finish/error
       await client.close();
     } 
   }
@@ -46,21 +42,48 @@ app.get("/nojs", (req, res) => {
 });
 
 //Get all
-app.get("/static", (req, res) => {
+app.get("/static", async (req, res) => {
+  let result;
+  let finalResult = [];
+  try {
+    await client.connect();
+    result = await client.db("CSE135").collection("StaticData").find({}, );
+    for await (const doc of result) {
+      finalResult.push(doc);
+    }
+  } finally {
+    await client.close();
+  } 
 
+  res.status(200);
+  res.send(finalResult);
 });
 
+//Get id
+app.get("/static/:id", async (req, res) => {
+  let result;
+  console.log(req.params.id);
+  try {
+    await client.connect();
+    result = await client.db("CSE135").collection("StaticData").findOne({ _id: new ObjectId(req.params.id) });
+
+  } finally {
+    await client.close();
+  } 
+  console.log(result);
+  res.status(200);
+  res.send(result);
+});
+
+//Post static data
 app.post("/static", jsonParser, async function(req, res) {
   console.log('it worked');
   console.log(req.body);
 
   try {
-    // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
-    // Send a ping to confirm a successful connection
     await client.db("CSE135").collection("StaticData").insertOne(req.body['data'][0]);
   } finally {
-    // Ensures that the client will close when you finish/error
     await client.close();
   } 
   
