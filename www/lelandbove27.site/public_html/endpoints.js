@@ -17,6 +17,7 @@ const client = new MongoClient(uri, {
       // Send a ping to confirm a successful connection
       await client.db("admin").command({ ping: 1 });
       console.log("Pinged your deployment. You successfully connected to MongoDB!");
+      await client.db("CSE135").collection("StaticData").insertOne({ 'hello': 'there'});
     } finally {
       // Ensures that the client will close when you finish/error
       await client.close();
@@ -36,7 +37,6 @@ app.get("/", (req, res) => {
   console.log('testing if this updated');
   //Test mongodb
   run().catch(console.dir);
-  console.log('why is it not working');
   res.send("Hello world it workssssss");
 });
 
@@ -50,9 +50,22 @@ app.get("/static", (req, res) => {
 
 });
 
-app.post("/static", jsonParser, (req, res) => {
+app.post("/static", jsonParser, async function(req, res) {
   console.log('it worked');
   console.log(req.body);
+
+  try {
+    // Connect the client to the server	(optional starting in v4.7)
+    await client.connect();
+    // Send a ping to confirm a successful connection
+    await client.db("CSE135").collection("StaticData").insertOne(req.body['data'][0]);
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  } 
+  
+  res.status(200);
+  res.send();
 });
 
 app.get("/activity", (req, res) => {

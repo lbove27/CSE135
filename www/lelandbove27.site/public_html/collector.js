@@ -9,21 +9,23 @@ let activityDataObj = {
 localStorage.setItem("staticData", JSON.stringify(staticDataObj));
 localStorage.setItem("activityData", JSON.stringify(activityDataObj));
 
+let imageFlag = true; 
 //Figure out if images are enabled
-console.log("updated");
+
 function imagesOn() {
     var pixel = new Image();
     pixel.src = 'clear.png';
     
-    $(document).ready(
+    //$(document).ready(
         $(pixel).on('load', function() {
-            if (pixel.width > 0) {
-                document.body.className += (document.body.className != '') ? ' enabled' : 'enabled';
+            if (pixel.width < 0) {
+                console.log("images are disabled");
+                //document.body.className += (document.body.className != '') ? ' enabled' : 'enabled';
+                imageFlag = false;
             }
         })
-    )
+    //)
 }
-imagesOn();
 
 //CSS Check
 function cssCheck() {
@@ -56,6 +58,8 @@ window.onload = () => {
     startTime = new Date();
 
     //performance data
+
+    
     setTimeout(function() {
         let timingObj = performance.getEntriesByType("navigation")[0];
         let pageStart = timingObj["loadEventStart"];
@@ -64,13 +68,14 @@ window.onload = () => {
 
 
         //Helper function to set the class if the image is loaded
-        let body = document.getElementById('body');
-        let imagesEnabled = false; 
-        
+        /*
         if(body.classList.contains('enabled')) {
             imagesEnabled = true;
         }
         console.log(imagesEnabled);
+        */
+        imagesOn();
+        console.log(imageFlag);
 
         //Check for CSS
         let cssEnabled = cssCheck();
@@ -81,7 +86,7 @@ window.onload = () => {
             "Language": language,
             "Cookies Enabled": cookiesEnabled,
             "JavaScript Enabled": jsEnabled,
-            "Images Enabled": imagesEnabled,
+            "Images Enabled": imageFlag,
             "CSS Enabled": cssEnabled,
             "Screen Height": screenHeight,
             "Screen Width": screenWidth,
@@ -93,13 +98,10 @@ window.onload = () => {
             "Total Load Time": totalLoadTime
         }
 
-        fetch("/api/static", {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(staticData)
-        });
+        let localStorageVal = JSON.parse(localStorage.getItem('staticData'));
+        localStorageVal.data.push(staticData);
+        console.log(localStorageVal);
+        localStorage.setItem("staticData", JSON.stringify(localStorageVal));
 
     }, 0);
 }
@@ -173,20 +175,32 @@ window.addEventListener('unload', (event) => {
     let endTime = new Date();
     let page = window.location.href;
 
-    fetch('/api/additionalInfo', {
-        method: "POST",
-    });
 });
-
-
-
 
 //send data / store in local storage / retrieve from local storage every minute 
 setInterval(function() {
 
-
-
     //send static data
+    //if statement that checks if there is anything there 
+    let staticData = JSON.parse(localStorage.getItem("staticData"));
+    
+    //console.log("got here and didn't send data");
+    console.log(staticData.data.length);
+    if(staticData.data.length > 0) {
+        //add cookie to staticData[0]
+        console.log("sent data");
+        fetch("/api/static", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(staticData)
+        }).then((response) => {
+            localStorage.setItem("staticData", JSON.stringify(staticDataObj));
+        });
+        
+    }
+    
 
 
-}, 60000); 
+}, 10000); 
