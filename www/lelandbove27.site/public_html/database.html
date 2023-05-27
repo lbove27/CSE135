@@ -3,11 +3,20 @@
     <head>
         <meta charset="UTF-8">
         <title>Database.html</title>
-        <script>
-            
-        </script>
+        <script src="https://cdn.zinggrid.com/zinggrid.min.js" defer></script>
     </head>
     <body>
-
+        <h1>Database Static Data Grid</h1>
+        <zing-grid caption="Static Data" id="grid" sorter pager page-size="5"  ></zing-grid>
+        <script>
+            let result; 
+            result = fetch("/api/static", {
+                method: "get",
+            }).then((response) => response.json()).then((data) => {
+                let grid = document.getElementById('grid');
+                grid.setAttribute('data', JSON.stringify(data));
+                console.log(data);
+            });
+        </script>
     </body>
 </html>

@@ -1,10 +1,19 @@
+//const crypto = require("crypto");
+//const sessionId = crypto.randomBytes(16).toString("hex");
+
+//start the session 
+fetch("/api", {
+    method: "get"
+});
+
 //initialize local storage objects
 let staticDataObj = { 'data': [] };
 let activityDataObj = { 
     'errors': [],
     'mouseActivity': [],
     'keyboardActivity': [],
-    'idleTime': []
+    'idleTime': [],
+    'additionalData': []
 };
 localStorage.setItem("staticData", JSON.stringify(staticDataObj));
 localStorage.setItem("activityData", JSON.stringify(activityDataObj));
@@ -55,7 +64,7 @@ window.onload = () => {
     let windowHeight = window.innerHeight;
 
     //get the time the user entered the page
-    startTime = new Date();
+    let startTime = new Date();
 
     //performance data
 
@@ -100,23 +109,40 @@ window.onload = () => {
 
         let localStorageVal = JSON.parse(localStorage.getItem('staticData'));
         localStorageVal.data.push(staticData);
-        console.log(localStorageVal);
+        //console.log(localStorageVal);
         localStorage.setItem("staticData", JSON.stringify(localStorageVal));
 
     }, 0);
 }
 
 //capture all other errors
-window.onerror = function (msg, url, lineNo, columnNo, error) {
-    console.log(msg);
-    console.log(url);
-    console.log(lineNo);
-    console.log(columnNo);
-    console.log(error);
+window.onerror = function(event) {
+    let date = new Date();
+    let obj = {
+        "Error": event,
+        "type": "error",
+        "errorType": "general",
+        "date": date,
+        "User Agent": navigator.userAgent
+    }
+
+    let localStorageVal = JSON.parse(localStorage.getItem('activityData'));
+    localStorageVal.errors.push(obj);
+    localStorage.setItem("activityData", JSON.stringify(localStorageVal));
 }
 //capture HTTP errors
 window.addEventListener('error', function(event) {
-    console.log(event);
+    let date = new Date();
+    let obj = {
+        "Error": event,
+        "type": "error",
+        "errorType": "http",
+        "date": date,
+        "User Agent": navigator.userAgent
+    }
+    let localStorageVal = JSON.parse(localStorage.getItem('activityData'));
+    localStorageVal.errors.push(obj);
+    localStorage.setItem("activityData", JSON.stringify(localStorageVal));
 }, true);
 
 
@@ -124,14 +150,60 @@ window.addEventListener('error', function(event) {
 
 //Mouse Movement
 window.addEventListener("mousemove", (event) => {
-    let x = event.screenX;
-    let y = event.screenY;
+    let x = event.x;
+    let y = event.y;
+    let type = 'mousemove';
+
+    let obj = {
+        'type': type,
+        'x': x,
+        'y': y
+    }
+
+    let localStorageVal = JSON.parse(localStorage.getItem('activityData'));
+    localStorageVal.mouseActivity.push(obj);
+    localStorage.setItem("activityData", JSON.stringify(localStorageVal));
+});
+
+window.addEventListener("mousedown", (event) => {
+    let mouseButton;
+    let x = event.x;
+    let y = event.y;
+    
+    if(event.button == 1) {
+        mouseButton = 'middle';
+    }
+    else if(event.button == 2) {
+        mouseButton = 'right';
+    }
+    else {
+        mouseButton = 'left';
+    }
+
+    let obj = {
+        'mouseButton': mouseButton,
+        'x': x,
+        'y': y,
+        'type': 'click'
+    }
+
+    let localStorageVal = JSON.parse(localStorage.getItem('activityData'));
+    localStorageVal.mouseActivity.push(obj);
+    localStorage.setItem("activityData", JSON.stringify(localStorageVal));
 });
 
 //Clicks
 window.addEventListener("scroll", (event) => {
     const tScroll = document.body.scrollHeight - window.innerHeight;
     const scrollPercentage = (window.pageYOffset * 100) / tScroll;
+    
+    let obj = {
+        'scrollPercentage': scrollPercentage,
+        'type': 'scroll'
+    }
+    let localStorageVal = JSON.parse(localStorage.getItem('activityData'));
+    localStorageVal.mouseActivity.push(obj);
+    localStorage.setItem("activityData", JSON.stringify(localStorageVal));
 });
 
 
@@ -139,14 +211,28 @@ window.addEventListener("scroll", (event) => {
 window.addEventListener("keydown", (event) => {
     console.log(event);
     let key = event.key;
+    let keyEvent = event;
+
+    let obj = {
+        'type': 'key press',
+        'key': key,
+        'keyEvent': keyEvent
+    }
+
+    let localStorageVal = JSON.parse(localStorage.getItem('activityData'));
+    localStorageVal.keyboardActivity.push(obj);
+    localStorage.setItem("activityData", JSON.stringify(localStorageVal));
 });
 
 
 //Idle time counting 
 let time = 0;
 let counter;
+let startIdle = 0;
 
 function startTimer() {
+    let date = new Date();
+    startIdle = date.getTime();
     counter = setInterval(() => {
         time += 1000; 
     }, 1000);
@@ -157,6 +243,16 @@ function restartTimer() {
     if(time >= 2000) {
         //get information to send for idle time
         console.log(time);
+        console.log(startIdle);
+        let obj = {
+            'startTime': startIdle,
+            'duration': time,
+            'type': 'idle'
+        }
+        let localStorageVal = JSON.parse(localStorage.getItem('activityData'));
+        localStorageVal.idleTime.push(obj);
+        localStorage.setItem("activityData", JSON.stringify(localStorageVal));
+
     }
     time = 0; 
     startTimer();
@@ -168,23 +264,34 @@ document.addEventListener('mousemove', restartTimer);
 document.addEventListener('scroll', restartTimer);
 document.addEventListener('keydown', restartTimer);
 
-
+let endTime;
+let page;
 //additional data (time user enters, leaves, and which page)
 window.addEventListener('unload', (event) => {
     //remember to add the startTime from above
-    let endTime = new Date();
-    let page = window.location.href;
+    endTime = new Date();
+    page = window.location.href;
+
+    let obj = {
+        'startTime': startTime,
+        'endTime': endTime,
+        'page': page,
+        'type': 'unload'
+    }
+
+    let localStorageVal = JSON.parse(localStorage.getItem('activityData'));
+    localStorageVal.additionalData.push(obj);
+    localStorage.setItem("activityData", JSON.stringify(localStorageVal));
 
 });
 
 //send data / store in local storage / retrieve from local storage every minute 
 setInterval(function() {
 
-    //send static data
-    //if statement that checks if there is anything there 
     let staticData = JSON.parse(localStorage.getItem("staticData"));
+    let activityData = JSON.parse(localStorage.getItem("activityData"));
     
-    //console.log("got here and didn't send data");
+    //send static data
     console.log(staticData.data.length);
     if(staticData.data.length > 0) {
         //add cookie to staticData[0]
@@ -198,9 +305,19 @@ setInterval(function() {
         }).then((response) => {
             localStorage.setItem("staticData", JSON.stringify(staticDataObj));
         });
-        
     }
     
-
+    //send activity data 
+    
+    console.log("sent activity data");
+    fetch("/api/activity", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(activityData)
+    }).then((response) => {
+        localStorage.setItem("activityData", JSON.stringify(activityDataObj));
+    });
 
 }, 10000); 
