@@ -1,6 +1,6 @@
 const express = require("express")
 const router = express.Router();
-const User = require("./user");
+const User = require("./model/user");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const auth = require("./auth.js");
@@ -17,16 +17,6 @@ const MONGOURI = "mongodb+srv://lbove:tHpwlEOR0dxptTgt@cluster0.lbkxxfj.mongodb.
 app.use(bodyParser.json());
 app.use(cors())
 
-mongoose.connect(MONGOURI)
-.then(() => {
-	console.log("Connected to DB");
-	app.listen(3002, () => {
-		console.log(`Node is running on port 3002`);
-    });
-  })
-  .catch((error) => {
-	console.log(error);
-  });
 
 
 router.post("/register", async(req,res) =>{
@@ -105,6 +95,18 @@ router.get("/secure-api", auth, async (req, res) => {
     }
 });
 
-app.listen(3002, () => console.log('Listening on port ' + 3002));
+
+mongoose.connect(MONGOURI)
+.then(() => {
+	console.log("Connected to DB");
+	app.listen(3002, () => {
+		console.log(`Node is running on port 3002`);
+    });
+  })
+  .catch((error) => {
+	console.log(error);
+  });
+  
+//app.listen(3002, () => console.log('Listening on port ' + 3002));
 
 module.exports = router;
