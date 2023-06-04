@@ -1,6 +1,6 @@
 const express = require("express")
 //const router = express.Router();
-const User = require("./model/user");
+const User = require("./User.js");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const auth = require("./auth.js");
@@ -109,4 +109,4 @@ mongoose.connect(MONGOURI)
 
 //app.listen(3002, () => console.log('Listening on port ' + 3002));
 
-module.exports = router;
+//module.exports = router;
