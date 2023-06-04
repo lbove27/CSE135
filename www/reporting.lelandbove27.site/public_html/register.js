@@ -1,6 +1,6 @@
-const loginForm = document.getElementById("register-form")
+const register = document.getElementById("register");
 
-loginForm.onsubmit = async (e) => {
+register.onsubmit = async (e) => {
     e.preventDefault();
 
     var username = document.getElementById("username").value;
