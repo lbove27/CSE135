@@ -14,7 +14,7 @@ register.onsubmit = async (e) => {
         password
     }
     
-    const res = await fetch("user/register",{
+    const res = await fetch("/user/register",{
         method: 'POST',
         headers:{
             "Content-Type":'application/json'
