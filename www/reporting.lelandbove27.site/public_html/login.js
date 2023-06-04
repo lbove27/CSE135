@@ -18,7 +18,7 @@ loginForm.onsubmit = async (e) => {
         email,
         password
     }
-    const res = await fetch("https://reporting.lelandbove27.site/user/login",{
+    const res = await fetch("user/login",{
         method: 'POST',
         headers:{
             "Content-Type":'application/json'
