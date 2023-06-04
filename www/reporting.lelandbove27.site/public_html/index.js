@@ -3,11 +3,12 @@ const bodyParser = require("body-parser");
 const cors = require('cors');
 const user = require("./routes/userRoutes");
 const mongoose = require("mongoose");
-const mysql = require('mysql2')
 
 const app = express();
 
-const MONGOURI = "";
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
+const MONGOURI = "mongodb+srv://lbove:tHpwlEOR0dxptTgt@cluster0.lbkxxfj.mongodb.net/?retryWrites=true&w=majority";
+
 
 app.use(bodyParser.json());
 app.use(cors())
@@ -15,12 +16,11 @@ app.use(cors())
 app.use("/user", user);
 
 
-
 mongoose.connect(MONGOURI)
 .then(() => {
 	console.log("Connected to DB");
-	app.listen(3000, () => {
-		console.log(`Node is running on port 3000`);
+	app.listen(3002, () => {
+		console.log(`Node is running on port 3002`);
     });
   })
   .catch((error) => {
