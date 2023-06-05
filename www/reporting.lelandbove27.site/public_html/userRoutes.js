@@ -7,7 +7,7 @@ const auth = require("./middleware/auth");
 
 const bodyParser = require("body-parser");
 const cors = require('cors');
-const user = require("./userRoutes");
+//const user = require("./userRoutes");
 const mongoose = require("mongoose");
 
 const app = express();
@@ -19,7 +19,7 @@ const MONGOURI = "mongodb+srv://lbove:tHpwlEOR0dxptTgt@cluster0.lbkxxfj.mongodb.
 app.use(bodyParser.json());
 app.use(cors())
 
-app.use("/user", user);
+//app.use("/user", user);
 
 app.post("/register", async(req,res) =>{
     const {username, email, password} = req.body;
