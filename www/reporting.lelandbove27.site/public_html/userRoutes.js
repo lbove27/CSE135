@@ -21,7 +21,7 @@ app.use(cors())
 
 app.use("/user", user);
 
-router.post("/register", async(req,res) =>{
+app.post("/register", async(req,res) =>{
     const {username, email, password} = req.body;
     try{
         let user = await User.findOne({email});
@@ -50,7 +50,7 @@ router.post("/register", async(req,res) =>{
     }
 });
 
-router.post("/login", async (req, res) => {
+app.post("/login", async (req, res) => {
     const { email, password } = req.body;
     try {
 		let user = await User.findOne({
@@ -87,7 +87,7 @@ router.post("/login", async (req, res) => {
     }
 });
 
-router.get("/secure-api", auth, async (req, res) => {
+app.get("/secure-api", auth, async (req, res) => {
     try {
       res.json({
           msg : 'Secure Api Tested'
