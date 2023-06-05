@@ -1,3 +1,4 @@
+/*
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require('cors');
@@ -26,3 +27,4 @@ mongoose.connect(MONGOURI)
   .catch((error) => {
 	console.log(error);
   });
+*/
