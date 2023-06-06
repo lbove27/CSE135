@@ -76,7 +76,8 @@ app.post("/login", async (req, res) => {
 			});
 		}
 		const flag = await bcrypt.compare(password, user.password);
-		if (!flag){
+        const flag2 = await bcrypt.compare(password, user2.password);
+		if (!flag && !flag2){
 			return res.status(400).json({
 				msg: "Invalid password",
 			});
