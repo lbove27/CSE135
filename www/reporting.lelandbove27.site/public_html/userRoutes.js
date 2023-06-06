@@ -68,6 +68,8 @@ app.post("/login", async (req, res) => {
             "username": email,
         });
         //add in a username here instead of just email and do an && for invalid
+        console.log("user " + user);
+        console.log("user2 " + user2);
 		if (!user && !user2){
 			return res.status(400).json({
 				msg: "Invalid username",
