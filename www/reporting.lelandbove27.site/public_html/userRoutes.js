@@ -130,12 +130,15 @@ app.get("/dashboard/:authToken", async (req, res) => {
             res.header("Content-Type: text/html");
             res.send("<html><body><h1>Go back to the login please</h1></body></html>");
         }
+        else {
+            res.header("Content-Type: text/html");
+            res.status(200);
+            res.send("<html><body><h1>Dashboard</h1></body></html>");
+          }
       } finally {
         await client.close();
       } 
-      res.header("Content-Type: text/html");
-      res.status(200);
-      res.send("<html><body><h1>Dashboard</h1></body></html>");
+      
 }); 
 
 //report route
