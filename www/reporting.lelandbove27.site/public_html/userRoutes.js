@@ -129,7 +129,7 @@ app.get("/dashboard/:authToken", async (req, res) => {
         if(!found) {
             res.status(404);
             res.header("Content-Type: text/html");
-            res.send("<html><body><h1>Go back to the login please</h1></body></html>");
+            res.send("<html><body><h1><a href=./login.html>Go back to the login please</a></h1></body></html>");
         }
         else {
             res.header("Content-Type: text/html");
