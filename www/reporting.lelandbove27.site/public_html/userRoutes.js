@@ -119,9 +119,6 @@ app.get("/dashboard/:authToken", async (req, res) => {
     let token = req.params.authToken;
 
     try {
-        //await client.connect();
-        //let getToken = { "authToken": token };
-        //add authToken to the User mongoose model
         await client.connect();
         let found = await client.db("test").collection("users").find({ "authToken": token}).count();
         console.log(found);
@@ -144,8 +141,26 @@ app.get("/dashboard/:authToken", async (req, res) => {
 
 //report route
 app.get("/report/:authToken", async (req, res) => {
-    res.header("Content-Type: html");
-    res.send("<html><body><h1>hi</h1></body></html>");
+    let token = req.params.authToken;
+
+    try {
+        await client.connect();
+        let found = await client.db("test").collection("users").find({ "authToken": token}).count();
+        console.log(found);
+        console.log(!found);
+        if(!found) {
+            res.status(404);
+            res.header("Content-Type: text/html");
+            res.send("<html><body><h1>Go back to the login please</h1></body></html>");
+        }
+        else {
+            res.header("Content-Type: text/html");
+            res.status(200);
+            res.send("<html><body><h1>Report</h1></body></html>");
+          }
+      } finally {
+        await client.close();
+      } 
 });
 
 mongoose.connect(MONGOURI)
