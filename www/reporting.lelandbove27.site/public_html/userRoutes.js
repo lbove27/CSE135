@@ -15,9 +15,16 @@ const app = express();
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const MONGOURI = "mongodb+srv://lbove:tHpwlEOR0dxptTgt@cluster0.lbkxxfj.mongodb.net/?retryWrites=true&w=majority";
 
+const client = new MongoClient(MONGOURI, {
+    serverApi: {
+      version: ServerApiVersion.v1,
+      strict: true,
+      deprecationErrors: true,
+    }
+  });
 
 app.use(bodyParser.json());
-app.use(cors())
+app.use(cors());
 
 //app.use("/user", user);
 
@@ -56,6 +63,7 @@ app.post("/login", async (req, res) => {
 		let user = await User.findOne({
 			email,
 		});
+        //add in a username here instead of just email and do an && for invalid
 		if (!user){
 			return res.status(400).json({
 				msg: "Invalid username",
@@ -74,8 +82,17 @@ app.post("/login", async (req, res) => {
 			},
 		};
 
-      	jwt.sign(payload, 'secret-key' ,{ expiresIn: 10000,}, (err, token) => {
+      	jwt.sign(payload, 'secret-key' ,{ expiresIn: 10000,}, async (err, token) => {
 			if (err) throw err;
+            //update database
+            try {
+                await client.connect();
+                let getWithEmail = { "email": email };
+                let updateToken = { $set: { "authToken": token }};
+                await client.db("test").collection("users").updateOne(getWithEmail, updateToken);
+              } finally {
+                await client.close();
+              } 
 			res.status(200).json({
 				token,
 			});

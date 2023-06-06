@@ -14,6 +14,7 @@ loginForm.onsubmit = async (e) => {
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
     var error = document.getElementById("error-text");
+    //add username box as well
     requestBody = {
         email,
         password
