@@ -126,8 +126,9 @@ app.get("/dashboard/:authToken", async (req, res) => {
       } finally {
         await client.close();
       } 
+      res.header("Content-Type: html");
       res.status(200);
-      res.send();
+      res.send("<html><body><h1>hi</h1></body></html>");
 }); 
 
 //report route
