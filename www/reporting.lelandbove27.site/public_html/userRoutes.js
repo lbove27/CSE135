@@ -59,12 +59,16 @@ app.post("/register", async(req,res) =>{
 
 app.post("/login", async (req, res) => {
     const { email, password } = req.body;
+    let username = email;
     try {
 		let user = await User.findOne({
 			email,
 		});
+        let user2 = await User.findOne({
+            username,
+        });
         //add in a username here instead of just email and do an && for invalid
-		if (!user){
+		if (!user && !user2){
 			return res.status(400).json({
 				msg: "Invalid username",
 			});
@@ -88,6 +92,7 @@ app.post("/login", async (req, res) => {
             try {
                 await client.connect();
                 let getWithEmail = { "email": email };
+                //fix this for username as well
                 let updateToken = { $set: { "authToken": token }};
                 await client.db("test").collection("users").updateOne(getWithEmail, updateToken);
               } finally {
@@ -121,8 +126,6 @@ app.get("/dashboard/:authToken", async (req, res) => {
     try {
         await client.connect();
         let found = await client.db("test").collection("users").find({ "authToken": token}).count();
-        console.log(found);
-        console.log(!found);
         if(!found) {
             res.status(404);
             res.header("Content-Type: text/html");
@@ -146,8 +149,6 @@ app.get("/report/:authToken", async (req, res) => {
     try {
         await client.connect();
         let found = await client.db("test").collection("users").find({ "authToken": token}).count();
-        console.log(found);
-        console.log(!found);
         if(!found) {
             res.status(404);
             res.header("Content-Type: text/html");
