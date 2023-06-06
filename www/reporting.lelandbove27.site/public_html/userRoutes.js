@@ -119,11 +119,11 @@ app.get("/dashboard/:authToken", async (req, res) => {
     let token = req.params.authToken;
 
     try {
-        await client.connect();
-        let getToken = { "authToken": token };
+        //await client.connect();
+        //let getToken = { "authToken": token };
         //add authToken to the User mongoose model
         let found = await User.findOne({
-			token,
+			token
 		});
         console.log(found);
         console.log(!found);
