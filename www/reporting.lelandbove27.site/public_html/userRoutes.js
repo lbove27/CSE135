@@ -125,6 +125,8 @@ app.get("/dashboard/:authToken", async (req, res) => {
         let found = await User.findOne({
 			token,
 		});
+        console.log(found);
+        console.log(!found);
         if(!found) {
             res.status(404);
             res.header("Content-Type: text/html");
