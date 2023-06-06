@@ -99,7 +99,7 @@ app.post("/login", async (req, res) => {
         else if(user2) {
             payload = {
                 user: {
-                    id: user.id,
+                    id: user2.id,
                 },
             };
         }
