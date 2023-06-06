@@ -122,13 +122,20 @@ app.get("/dashboard/:authToken", async (req, res) => {
         await client.connect();
         let getToken = { "authToken": token };
         //add authToken to the User mongoose model
-        let authenticated = await client.db("test").collection("users").find(getToken);
+        let found = await User.findOne({
+			token,
+		});
+        if(!token) {
+            res.status(404);
+            res.header("Content-Type: text/html");
+            res.send("<html><body><h1>Go back to the login please</h1></body></html>");
+        }
       } finally {
         await client.close();
       } 
-      res.header("Content-Type: html");
+      res.header("Content-Type: text/html");
       res.status(200);
-      res.send("<html><body><h1>hi</h1></body></html>");
+      res.send("<html><body><h1>Dashboard</h1></body></html>");
 }); 
 
 //report route
