@@ -5,7 +5,7 @@ window.onload = function() {
     if(auth_token != null){
         console.log('Auth token present')
         //window.location.href = "./index.html";
-        window.location.href = "/user/dashboard" + sessionStorage.getItem('auth_token');
+        window.location.href = "/user/dashboard/" + sessionStorage.getItem('auth_token');
     }
 };
 
@@ -34,7 +34,7 @@ loginForm.onsubmit = async (e) => {
                 sessionStorage.setItem('auth_token', data.token);
                 //window.location.href = "./index.html";
                 //Replace with a call to the dashboard route
-                window.location.href = "/user/dashboard" + sessionStorage.getItem('auth_token');
+                window.location.href = "/user/dashboard/" + sessionStorage.getItem('auth_token');
             }
         })
     }).catch(error =>{
