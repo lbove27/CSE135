@@ -114,6 +114,28 @@ app.get("/secure-api", auth, async (req, res) => {
     }
 });
 
+//dashboard route
+app.get("/dashboard/:authToken", async (req, res) => {
+    let token = req.params.authToken;
+
+    try {
+        await client.connect();
+        let getToken = { "authToken": token };
+        //add authToken to the User mongoose model
+        let authenticated = await client.db("test").collection("users").find(getToken);
+      } finally {
+        await client.close();
+      } 
+      res.status(200);
+      res.send();
+}); 
+
+//report route
+app.get("/report/:authToken", async (req, res) => {
+    res.header("Content-Type: html");
+    res.send("<html><body><h1>hi</h1></body></html>");
+});
+
 mongoose.connect(MONGOURI)
 .then(() => {
 	console.log("Connected to DB");

@@ -29,28 +29,6 @@ app.use(cors());
 
 //report html
 
-//dashboard route
-app.get("/dashboard/:authToken", async (req, res) => {
-    let token = req.params.authToken;
-
-    try {
-        await client.connect();
-        let getToken = { "authToken": token };
-        //add authToken to the User mongoose model
-        let authenticated = await client.db("test").collection("users").find(getToken);
-      } finally {
-        await client.close();
-      } 
-      res.status(200);
-      res.send();
-}); 
-
-//report route
-app.get("/report/:authToken", async (req, res) => {
-
-});
-
-
 
 //connect
 mongoose.connect(MONGOURI)

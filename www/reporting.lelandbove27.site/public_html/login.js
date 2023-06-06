@@ -31,7 +31,9 @@ loginForm.onsubmit = async (e) => {
                 error.innerHTML = data.msg;
             } else {
                 sessionStorage.setItem('auth_token', data.token);
-                window.location.href = "./index.html";
+                //window.location.href = "./index.html";
+                //Replace with a call to the dashboard route
+                window.location.href = "/user/dashboard" + sessionStorage.getItem('auth_token');
             }
         })
     }).catch(error =>{
