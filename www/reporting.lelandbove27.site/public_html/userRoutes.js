@@ -111,9 +111,11 @@ app.post("/login", async (req, res) => {
             try {
                 await client.connect();
                 let getWithEmail = { "email": email };
+                let getWithUsername = { "username": email }
                 //fix this for username as well
                 let updateToken = { $set: { "authToken": token }};
                 await client.db("test").collection("users").updateOne(getWithEmail, updateToken);
+                await client.db("test").collection("users").updateOne(getWithUsername, updateToken);
               } finally {
                 await client.close();
               } 
