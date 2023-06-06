@@ -129,7 +129,7 @@ app.get("/dashboard/:authToken", async (req, res) => {
         if(!found) {
             res.status(404);
             res.header("Content-Type: text/html");
-            res.send("<html><body><h1><a href='reporting.lelandbove27.site/login.html'>Go back to the login please</a></h1></body></html>");
+            res.send("<html><body><h1><a href='https://reporting.lelandbove27.site/login.html'>Go back to the login please</a></h1></body></html>");
         }
         else {
             res.header("Content-Type: text/html");
@@ -152,7 +152,7 @@ app.get("/report/:authToken", async (req, res) => {
         if(!found) {
             res.status(404);
             res.header("Content-Type: text/html");
-            res.send("<html><body><h1><a href='reporting.lelandbove27.site/login.html'>Go back to the login please</a></h1></body></html>");
+            res.send("<html><body><h1><a href='https://reporting.lelandbove27.site/login.html'>Go back to the login please</a></h1></body></html>");
         }
         else {
             res.header("Content-Type: text/html");
