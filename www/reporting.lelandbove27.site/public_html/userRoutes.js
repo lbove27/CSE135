@@ -74,8 +74,8 @@ app.post("/login", async (req, res) => {
 				msg: "Invalid username",
 			});
 		}
-        const flag = 0;
-        const flag2 = 0;
+        let flag = 0;
+        let flag2 = 0;
         if(user) {
             flag = await bcrypt.compare(password, user.password);
         }
@@ -88,7 +88,7 @@ app.post("/login", async (req, res) => {
 			});
 	  	}
 
-        const payload = {};
+        let payload = {};
 		if(user) {
             payload = {
                 user: {
