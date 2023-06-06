@@ -62,10 +62,10 @@ app.post("/login", async (req, res) => {
     let username = email;
     try {
 		let user = await User.findOne({
-			email,
+			"email": email,
 		});
         let user2 = await User.findOne({
-            username,
+            "username": email,
         });
         //add in a username here instead of just email and do an && for invalid
 		if (!user && !user2){
