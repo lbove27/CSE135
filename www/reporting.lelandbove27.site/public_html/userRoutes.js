@@ -148,7 +148,7 @@ app.get("/report/:authToken", async (req, res) => {
 
     try {
         await client.connect();
-        let found = await client.db("test").collection("users").find({ "authToken": token}).count();
+        let found = await client.db("test").collection("users").find({ "authToken": token}).countDocuments();
         if(!found) {
             res.status(404);
             res.header("Content-Type: text/html");
