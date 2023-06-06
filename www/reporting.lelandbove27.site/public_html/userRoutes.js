@@ -88,11 +88,22 @@ app.post("/login", async (req, res) => {
 			});
 	  	}
 
-		const payload = {
-			user: {
-				id: user.id,
-			},
-		};
+        const payload = {};
+		if(user) {
+            payload = {
+                user: {
+                    id: user.id,
+                },
+            };
+        }
+        else if(user2) {
+            payload = {
+                user: {
+                    id: user.id,
+                },
+            };
+        }
+        
 
       	jwt.sign(payload, 'secret-key' ,{ expiresIn: 10000,}, async (err, token) => {
 			if (err) throw err;
