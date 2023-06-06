@@ -59,7 +59,6 @@ app.post("/register", async(req,res) =>{
 
 app.post("/login", async (req, res) => {
     const { email, password } = req.body;
-    let username = email;
     try {
 		let user = await User.findOne({
 			"email": email,
@@ -75,8 +74,14 @@ app.post("/login", async (req, res) => {
 				msg: "Invalid username",
 			});
 		}
-		const flag = await bcrypt.compare(password, user.password);
-        const flag2 = await bcrypt.compare(password, user2.password);
+        const flag = 0;
+        const flag2 = 0;
+        if(user) {
+            flag = await bcrypt.compare(password, user.password);
+        }
+        if(user2) {
+            flag2 = await bcrypt.compare(password, user2.password);
+        }
 		if (!flag && !flag2){
 			return res.status(400).json({
 				msg: "Invalid password",
