@@ -11,7 +11,7 @@
             function putUser(event) {
                 if(event.detail.usUpdate) {
                     let updatedDocument = event.detail.updatedRow;
-                    const id = updatedRow.id;
+                    const id = updatedDocument.id;
                     event.detail.request.params.id = id;
                 }
             }
