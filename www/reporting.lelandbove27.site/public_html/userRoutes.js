@@ -221,6 +221,40 @@ app.get("/edit", async (req, res) => {
     res.send(finalResult);
   });
 
+app.post("/edit", async (req, res) => {
+    try {
+        await client.connect();
+        const result = await client.db("test").collection("users").insertOne(req.body);
+        res.json(result.ops[0]);
+      } finally {
+        await client.close();
+      } 
+});
+
+app.put("/edit/:id", async (req, res) => {
+    try {
+        await client.connect();
+        result = await client.db("test").collection("users").find({});
+        for await (const user of result) {
+          finalResult.push(user);
+        }
+      } finally {
+        await client.close();
+      } 
+});
+
+app.delete("/edit/:id", async (req, res) => {
+    try {
+        await client.connect();
+        result = await client.db("test").collection("users").find({});
+        for await (const user of result) {
+          finalResult.push(user);
+        }
+      } finally {
+        await client.close();
+      } 
+});
+
 mongoose.connect(MONGOURI)
 .then(() => {
 	console.log("Connected to DB");
