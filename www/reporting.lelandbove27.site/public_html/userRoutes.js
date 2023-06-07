@@ -206,7 +206,7 @@ app.get("/report/:authToken", async (req, res) => {
 app.get("/users/:authToken", async (req, res) => {
     let token = req.params.authToken;
 
-    try {
+    try {   
         await client.connect();
         let found = await client.db("test").collection("users").find({ "authToken": token}).count();
         let user = await client.db("test").collection("users").findOne({ "authToken" : token });
