@@ -5,6 +5,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const auth = require("./middleware/auth");
 const fs = require('fs');
+const path = require('path');
 
 const bodyParser = require("body-parser");
 const cors = require('cors');
@@ -156,7 +157,8 @@ app.get("/dashboard/:authToken", async (req, res) => {
         else {
             res.header("Content-Type: text/html");
             res.status(200);
-            fs.readFile('dashboard.html', 'utf8', (err, data) => {
+            let myPath = path.resolve(__dirname, 'dashboard.html');
+            fs.readFile(myPath, 'utf8', (err, data) => {
                 if(err) {
                     console.error(err);
                     return;
