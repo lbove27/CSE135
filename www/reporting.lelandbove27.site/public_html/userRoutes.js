@@ -227,7 +227,7 @@ app.get("/users/:authToken", async (req, res) => {
             let myPath = path.resolve(__dirname, 'editUsers.html');
             fs.readFile(myPath, 'utf8', (err, data) => {
                 if(err) {
-                    console.error(err);
+                    console.error(err);       
                     return;
                 }
                 res.send(data);
