@@ -4,6 +4,7 @@ const User = require("./model/User");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const auth = require("./middleware/auth");
+const fs = require('fs');
 
 const bodyParser = require("body-parser");
 const cors = require('cors');
@@ -150,7 +151,14 @@ app.get("/dashboard/:authToken", async (req, res) => {
         if(!found) {
             res.status(404);
             res.header("Content-Type: text/html");
-            res.send("<html><body><h1><a href='https://reporting.lelandbove27.site/login.html'>Go back to the login please</a></h1></body></html>");
+            fs.readFile('dashboard.html', 'utf8', (err, data) => {
+                if(err) {
+                    console.error(err);
+                    return;
+                }
+                res.send(data);
+            });
+            //res.send("<html><body><h1><a href='https://reporting.lelandbove27.site/login.html'>Go back to the login please</a></h1></body></html>");
         }
         else {
             res.header("Content-Type: text/html");
@@ -173,7 +181,9 @@ app.get("/report/:authToken", async (req, res) => {
         if(!found) {
             res.status(404);
             res.header("Content-Type: text/html");
-            res.send("<html><body><h1><a href='https://reporting.lelandbove27.site/login.html'>Go back to the login please</a></h1></body></html>");
+            res.send(
+                "<html><body><h1><a href='https://reporting.lelandbove27.site/login.html'>Go back to the login please</a></h1></body></html>"
+            );
         }
         else {
             res.header("Content-Type: text/html");
