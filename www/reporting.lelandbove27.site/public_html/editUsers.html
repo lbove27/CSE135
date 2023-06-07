@@ -6,8 +6,9 @@
     </head>
     <body>
         <h1>Edit Users</h1>
-        <zing-grid caption="Users" id="grid" sorter pager page-size="5" ></zing-grid>
+        <zing-grid src="https://reporting.lelandbove27.site/user/edit" caption="Users" id="grid" sorter pager page-size="5" editor editor-controls></zing-grid>
         <script>
+            /*
             let result; 
             result = fetch("/user/edit", {
                 method: "get",
@@ -16,6 +17,7 @@
                 grid.setAttribute('data', JSON.stringify(data));
                 console.log(data);
             });
+            */
         </script>
     </body>
 </html>
