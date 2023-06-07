@@ -221,7 +221,7 @@ app.get("/edit", async (req, res) => {
     res.send(finalResult);
   });
 
-app.post("/edit/:id", async (req, res) => {
+app.post("/edit", async (req, res) => {
     try {
         await client.connect();
         const result = await client.db("test").collection("users").insertOne(req.body);
