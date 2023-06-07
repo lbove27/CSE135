@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>CRUD Grid for Admins Only</title>
+        <script src="https://cdn.zinggrid.com/zinggrid.min.js" defer></script>
+    </head>
+    <body>
+        <h1>Edit Users</h1>
+        <zing-grid caption="Users" id="grid" sorter pager page-size="5" ></zing-grid>
+        <script>
+            let result; 
+            result = fetch("/users/editUsers", {
+                method: "get",
+            }).then((response) => response.json()).then((data) => {
+                let grid = document.getElementById('grid');
+                grid.setAttribute('data', JSON.stringify(data));
+                console.log(data);
+            });
+        </script>
+    </body>
+</html>

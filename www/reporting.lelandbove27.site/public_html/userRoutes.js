@@ -165,7 +165,6 @@ app.get("/dashboard/:authToken", async (req, res) => {
                 }
                 res.send(data);
             });
-            //res.send("<html><body><h1>Dashboard</h1></body></html>");
           }
       } finally {
         await client.close();
@@ -198,12 +197,29 @@ app.get("/report/:authToken", async (req, res) => {
                 }
                 res.send(data);
             });
-            //res.send("<html><body><h1>Report</h1></body></html>");
           }
       } finally {
         await client.close();
       } 
 });
+
+//edit users route
+app.get("/editUsers", async (req, res) => {
+    let result;
+    let finalResult = [];
+    try {
+      await client.connect();
+      result = await client.db("test").collection("users").find({}, );
+      for await (const user of result) {
+        finalResult.push(user);
+      }
+    } finally {
+      await client.close();
+    } 
+  
+    res.status(200);
+    res.send(finalResult);
+  });
 
 mongoose.connect(MONGOURI)
 .then(() => {

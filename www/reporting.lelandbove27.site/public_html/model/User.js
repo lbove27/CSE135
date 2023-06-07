@@ -20,6 +20,10 @@ const UserSchema = mongoose.Schema({
       authToken: {
         type: String,
         default: null
+      },
+      adminAccess: {
+        type: Boolean,
+        default: false
       }
 });
 
