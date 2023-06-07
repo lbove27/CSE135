@@ -6,16 +6,18 @@
     </head>
     <body>
         <h1>Edit Users</h1>
-        <zing-grid src="https://reporting.lelandbove27.site/user/edit" caption="Users" id="grid" sorter pager page-size="5" editor editor-controls ></zing-grid>
+        <zing-grid src="https://reporting.lelandbove27.site/user/edit" caption="Users" id="grid" sorter pager page-size="5" editor editor-controls>
+           <zg-data on-delete="deleteUser"></zg-data>
+        </zing-grid>
         <script>
-            /*
-            function putUser(event) {
+            
+            function deleteUser(event) {
                 if(event.detail.method === "PUT") {
-                    const id = event.detail.params.id;
-                    event.detail.url = `/edit/${id}`;
+                    const params = event.detail.params;
+                    params.customParam = {"idKey": "_id"};
                 }
             }
-            */
+            
         </script>
     </body>
 </html>
