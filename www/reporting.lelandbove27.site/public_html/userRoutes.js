@@ -234,7 +234,7 @@ app.post("/edit", async (req, res) => {
 app.put("/edit", async (req, res) => {
     try {
         await client.connect();
-        const result = await client.db("test").collection("users").updateOne({ _id: ObjectId(req.params.id)}, { $set: req.body });
+        const result = await client.db("test").collection("users").updateOne({ _id: new ObjectId(req.params.id)}, { $set: req.body });
         res.json(result);
       } finally {
         await client.close();
@@ -244,7 +244,7 @@ app.put("/edit", async (req, res) => {
 app.delete("/edit", async (req, res) => {
     try {
         await client.connect();
-        const result = await client.db("test").collection("users").deleteOne({ _id: ObjectId(req.params.id)});
+        const result = await client.db("test").collection("users").deleteOne({ _id: new ObjectId(req.params.id)});
         res.json(result);
       } finally {
         await client.close();
