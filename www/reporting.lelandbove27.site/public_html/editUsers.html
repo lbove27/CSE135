@@ -6,20 +6,11 @@
     </head>
     <body>
         <h1>Edit Users</h1>
-        <zing-grid src="https://reporting.lelandbove27.site/user/edit" caption="Users" id="grid" sorter pager page-size="5" editor editor-control on-before-request="deleteUser">
+        <zing-grid src="https://reporting.lelandbove27.site/user/edit" caption="Users" id="grid" sorter pager page-size="5" editor editor-controls params='{"idKey": "_id"}'>
           
         </zing-grid>
         <script>
-            function deleteUser(event) {
-                const request = event.detail;
-                if(request.method === 'DELETE') {
-                    const userGrid = event.target;
-                    const selectedUser = grid.activeItem;
-                    request.body = JSON.stringify({
-                        id: selectedItem._id
-                    }); 
-                }
-            }
+           
         </script>
     </body>
 </html>
