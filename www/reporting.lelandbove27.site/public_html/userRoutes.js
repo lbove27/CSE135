@@ -236,7 +236,9 @@ app.post("/edit", async (req, res) => {
 app.put("/edit/:id", async (req, res) => {
     try {
         await client.connect();
-        const result = await client.db("test").collection("users").updateOne({ _id: new ObjectId(req.params.id)}, { $set: {username: req.body.username, email: req.body.email, password: req.body.password, createdAt: req.body.createdAt} });
+        const s = await bcrypt.genSalt(10);
+        let encryptedPassword = await bcrypt.hash(req.body.password, s);
+        const result = await client.db("test").collection("users").updateOne({ _id: new ObjectId(req.params.id)}, { $set: {username: req.body.username, email: req.body.email, password: encryptedPassword, createdAt: new Date(), adminAccess: req.body.adminAccess } });
         res.json(result);
       } finally {
         await client.close();
