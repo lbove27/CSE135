@@ -234,7 +234,8 @@ app.post("/edit", async (req, res) => {
 app.put("/edit", async (req, res) => {
     try {
         await client.connect();
-        const result = await client.db("test").collection("users").updateOne({ _id: new ObjectId(req.params.id)}, { $set: req.body });
+
+        const result = await client.db("test").collection("users").updateOne({ _id: new ObjectId(req.body.id)}, { $set: req.body });
         res.json(result);
       } finally {
         await client.close();
