@@ -204,12 +204,12 @@ app.get("/report/:authToken", async (req, res) => {
 });
 
 //edit users route
-app.get("/editUsers", async (req, res) => {
+app.get("/edit", async (req, res) => {
     let result;
     let finalResult = [];
     try {
       await client.connect();
-      result = await client.db("test").collection("users").find({}, );
+      result = await client.db("test").collection("users").find({});
       for await (const user of result) {
         finalResult.push(user);
       }
