@@ -231,7 +231,7 @@ app.post("/edit", async (req, res) => {
       } 
 });
 
-app.put("/edit/:id", async (req, res) => {
+app.put("/edit", async (req, res) => {
     try {
         await client.connect();
         const result = await client.db("test").collection("users").updateOne({ _id: ObjectId(req.params.id)}, { $set: req.body });
@@ -241,7 +241,7 @@ app.put("/edit/:id", async (req, res) => {
       } 
 });
 
-app.delete("/edit/:id", async (req, res) => {
+app.delete("/edit", async (req, res) => {
     try {
         await client.connect();
         const result = await client.db("test").collection("users").deleteOne({ _id: ObjectId(req.params.id)});
