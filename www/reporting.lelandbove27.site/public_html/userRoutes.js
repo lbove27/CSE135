@@ -278,7 +278,7 @@ app.put("/edit/:id", async (req, res) => {
       } finally {
         await client.close();
       } 
-});
+}); 
 
 app.delete("/edit/:id", async (req, res) => {
     try {
