@@ -9,10 +9,9 @@
         <zing-grid src="https://reporting.lelandbove27.site/user/edit" caption="Users" id="grid" sorter pager page-size="5" editor editor-controls edit="putUser"></zing-grid>
         <script>
             function putUser(event) {
-                if(event.detail.isUpdate) {
-                    let updatedDocument = event.detail.updatedRow;
-                    const id = updatedDocument.id;
-                    event.detail.request.params.id = id;
+                if(event.detail.method === "PUT") {
+                    const id = event.detail.params.id;
+                    event.detail.url = `/edit/${id}`;
                 }
             }
         </script>
