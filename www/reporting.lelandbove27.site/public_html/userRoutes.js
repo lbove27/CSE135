@@ -221,7 +221,8 @@ app.get("/users/:authToken", async (req, res) => {
                 "<html><body><h1><a href='https://reporting.lelandbove27.site/login.html'>You do not have admin acess. Login with an admin account to access.</a></h1></body></html>"
             );
         }
-        else if(!adminAccess) {
+        else if(adminBool == "false") {
+          console.log("admin");
           res.status(404);
             res.header("Content-Type: text/html");
             res.send(
