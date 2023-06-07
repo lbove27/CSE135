@@ -9,7 +9,7 @@
         <zing-grid caption="Users" id="grid" sorter pager page-size="5" ></zing-grid>
         <script>
             let result; 
-            result = fetch("/users/editUsers", {
+            result = fetch("/user/edit", {
                 method: "get",
             }).then((response) => response.json()).then((data) => {
                 let grid = document.getElementById('grid');
