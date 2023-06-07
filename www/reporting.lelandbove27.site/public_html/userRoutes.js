@@ -245,6 +245,7 @@ app.put("/edit", async (req, res) => {
 app.delete("/edit", async (req, res) => {
     try {
         await client.connect();
+        console.log(req.body._id);
         const result = await client.db("test").collection("users").deleteOne({ _id: new ObjectId(req.body._id)});
         res.json(result); 
       } finally {
