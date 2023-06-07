@@ -190,7 +190,15 @@ app.get("/report/:authToken", async (req, res) => {
         else {
             res.header("Content-Type: text/html");
             res.status(200);
-            res.send("<html><body><h1>Report</h1></body></html>");
+            let myPath = path.resolve(__dirname, 'report.html');
+            fs.readFile(myPath, 'utf8', (err, data) => {
+                if(err) {
+                    console.error(err);
+                    return;
+                }
+                res.send(data);
+            });
+            //res.send("<html><body><h1>Report</h1></body></html>");
           }
       } finally {
         await client.close();
