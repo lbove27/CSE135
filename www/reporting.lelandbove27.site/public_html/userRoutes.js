@@ -222,7 +222,6 @@ app.get("/users/:authToken", async (req, res) => {
             );
         }
         else if(adminBool == "false") {
-          console.log("admin");
           res.status(404);
             res.header("Content-Type: text/html");
             res.send(
