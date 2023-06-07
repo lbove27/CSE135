@@ -230,7 +230,7 @@ app.get("/users/:authToken", async (req, res) => {
                     console.error(err);       
                     return;
                 }
-                res.send(data);
+                res.send(data);  
             });
           }
       } finally {
