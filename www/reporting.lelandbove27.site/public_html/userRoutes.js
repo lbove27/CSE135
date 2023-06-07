@@ -203,6 +203,41 @@ app.get("/report/:authToken", async (req, res) => {
       } 
 });
 
+app.get("/users/:authToken", async (req, res) => {
+    let token = req.params.authToken;
+
+    try {
+        await client.connect();
+        let found = await client.db("test").collection("users").find({ "authToken": token}).count();
+        let user = await client.db("test").collection("users").findOne({ "authToken" : token });
+        let adminBool = false;
+        if(user) {
+            adminBool = user.adminAccess;
+        }
+        if(!found || !adminBool) {
+            res.status(404);
+            res.header("Content-Type: text/html");
+            res.send(
+                "<html><body><h1><a href='https://reporting.lelandbove27.site/login.html'>You do not have admin acess. Login with an admin account to access.</a></h1></body></html>"
+            );
+        }
+        else {
+            res.header("Content-Type: text/html");
+            res.status(200);
+            let myPath = path.resolve(__dirname, 'editUsers.html');
+            fs.readFile(myPath, 'utf8', (err, data) => {
+                if(err) {
+                    console.error(err);
+                    return;
+                }
+                res.send(data);
+            });
+          }
+      } finally {
+        await client.close();
+      } 
+});
+
 //edit users route
 app.get("/edit", async (req, res) => {
     let result;
