@@ -242,11 +242,11 @@ app.put("/edit", async (req, res) => {
       } 
 });
 
-app.delete("/edit/:id", async (req, res) => {
+app.delete("/edit", async (req, res) => {
     try {
         await client.connect();
-        //console.log(req.body._id);
-        const result = await client.db("test").collection("users").deleteOne({ _id: new ObjectId(req.params.id)});
+        console.log(req.body.id);
+        const result = await client.db("test").collection("users").deleteOne({ _id: new ObjectId(req.body.id)});
         res.json(result); 
       } finally {
         await client.close();
