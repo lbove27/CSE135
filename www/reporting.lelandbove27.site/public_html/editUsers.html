@@ -9,8 +9,13 @@
         <zing-grid src="https://reporting.lelandbove27.site/user/edit" caption="Users" id="grid" sorter pager page-size="5" editor editor-controls params='{"idKey": "_id"}'>
           
         </zing-grid>
+        <button id='logout'>Logout</button>
         <script>
-           
+        let logoutButton = document.getElementById('logout');
+        logoutButton.onclick = () => {
+            sessionStorage.removeItem("auth_token");
+            window.location.href='../../logout.html';
+        }
         </script>
     </body>
 </html>

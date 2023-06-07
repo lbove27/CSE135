@@ -5,6 +5,14 @@
     </head>
     <body>
         <h1>This is the report</h1>
+        <button id='logout'>Logout</button>
+        <script>
+        let logoutButton = document.getElementById('logout');
+        logoutButton.onclick = () => {
+            sessionStorage.removeItem("auth_token");
+            window.location.href='../../logout.html';
+        }
+        </script>
     </body>
 </html>
 
