@@ -6,6 +6,15 @@
     </head>
     <body>
         <h1>Edit Users</h1>
-        <zing-grid src="https://reporting.lelandbove27.site/user/edit" caption="Users" id="grid" sorter pager page-size="5" editor editor-controls></zing-grid>
+        <zing-grid src="https://reporting.lelandbove27.site/user/edit" caption="Users" id="grid" sorter pager page-size="5" editor editor-controls edit="putUser"></zing-grid>
+        <script>
+            function putUser(event) {
+                if(event.detail.usUpdate) {
+                    let updatedDocument = event.detail.updatedRow;
+                    const id = updatedRow.id;
+                    event.detail.request.params.id = id;
+                }
+            }
+        </script>
     </body>
 </html>
