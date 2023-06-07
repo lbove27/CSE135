@@ -226,7 +226,7 @@ app.post("/edit", async (req, res) => {
         await client.connect();
         const s = await bcrypt.genSalt(10);
         let encryptedPassword = await bcrypt.hash(req.body.password, s);
-        const result = await client.db("test").collection("users").insertOne({ username: req.body.username, email: req.body.email, password: encryptedPassword, createdAt: Date.now(), authToken: null, adminAccess: req.body.adminAccess});
+        const result = await client.db("test").collection("users").insertOne({ username: req.body.username, email: req.body.email, password: encryptedPassword, createdAt: new Date(), authToken: null, adminAccess: req.body.adminAccess});
         res.json(result.ops[0]);
       } finally {
         await client.close();
