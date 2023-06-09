@@ -267,7 +267,8 @@ document.addEventListener('keydown', restartTimer);
 let endTime;
 let page;
 //additional data (time user enters, leaves, and which page)
-document.addEventListener('beforeunload', (event) => {
+window.addEventListener('beforeunload', async (event) => {
+    event.preventDefault();
     //remember to add the startTime from above
     endTime = new Date(); 
     page = window.location.href;
@@ -283,7 +284,7 @@ document.addEventListener('beforeunload', (event) => {
     localStorageVal.additionalData.push(obj);
     localStorage.setItem("activityData", JSON.stringify(localStorageVal));
 
-    fetch("/api/activity", {
+    await fetch("/api/activity", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
