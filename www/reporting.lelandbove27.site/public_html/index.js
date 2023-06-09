@@ -19,13 +19,17 @@ async function createPieChart() {
     let edge = 0;
     let other = 0;
     staticData.forEach(obj => {
-      if(obj["User Agent"] == "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36") {
+      let userAgent = obj["User Agent"];
+      let chromeBool = userAgent.includes('Chrome');
+      let edgeBool = userAgent.includes('Edg');
+      let firefoxBool = userAgent.includes('Fx') || userAgent.includes('Firefox');
+      if(chromeBool && !firefoxBool && !edgeBool) {
         chrome++;
       }
-      else if(obj["User Agent"] == "Mozilla/5.0 (iPhone; CPU iPhone OS 16_1_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) FxiOS/113.2  Mobile/15E148 Safari/605.1.15") {
+      else if(firefoxBool) {
         firefox++;
       }
-      else if(obj["User Agent"] == "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.50") {
+      else if(edgeBool) {
         edge++;
       }
       else {
