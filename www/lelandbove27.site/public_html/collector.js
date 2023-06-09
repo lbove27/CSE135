@@ -273,7 +273,7 @@ window.addEventListener('beforeunload', async (event) => {
     endTime = new Date(); 
     page = window.location.href;
 
-    let totalTimeSpent = (endDate - startDate) / 1000;
+    let totalTimeSpent = (endTime - startTime) / 1000;
 
     let obj = {
         'startTime': startTime,
