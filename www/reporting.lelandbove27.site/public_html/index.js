@@ -240,7 +240,7 @@ async function createAllMetrics() {
   setTimeout(async () => {
     await createPieChart();
   }, 0);
-
+  createBoxPlot();
 }
 
 createAllMetrics();
