@@ -7,6 +7,123 @@ async function createUserVisits() {
 
 } 
 
+async function createBoxPlot() {
+    //Create the load times box plot
+    let boxPlotConfig = {
+      type: 'boxplot',
+      backgroundColor: '#DCE6F1',
+      title: {
+        text: 'Base Salary Comparison',
+        backgroundColor: 'none',
+        color: 'black',
+        fontSize: 24,
+        fontWeight: 'none',
+        offsetY: '36%'
+      },
+      plotarea: {
+        marginTop: '20%',
+        marginLeft: '25%',
+        marginRight: '12%'
+      },
+      plot: {
+        barWidth: 70,
+        hoverState: {
+          visible: false,
+        }
+      },
+      tooltip: {
+        shadow: false,
+        borderRadius: 3,
+        rules: [{
+            rule: '%i == 0',
+            backgrounCcolor: '#9A8AAD'
+          },
+          {
+            rule: '%i == 1',
+            backgroundColor: '#AABD82'
+          }
+        ]
+      },
+      scaleX: {
+        offsetStart: 40,
+        offsetEnd: 40,
+        lineColor: 'none',
+        labels: ['Marketing', 'Research'],
+        tick: {
+          visible: false
+        },
+        item: {
+          fontSize: 14
+        },
+        guide: {
+          visible: false
+        }
+      },
+      scaleY: {
+        offsetStart: 20,
+        offsetEnd: 20,
+        values: '50:250:25',
+        format: '$%v K',
+        lineColor: '#7F7F7F',
+        tick: {
+          lineColor: '#7F7F7F'
+        },
+        guide: {
+          visible: false
+        }
+      },
+      options: {
+        box: {
+          borderColor: '#204A7B',
+          borderWidth: 2,
+ 
+          rules: [{
+              rule: '%i == 0',
+              backgroundColor: '#9A8AAD'
+            },
+            {
+              rule: '%i == 1',
+              backgroundColor: '#AABD82'
+            }
+          ],
+        },
+        lineMedianLevel: {
+          lineColor: '#FC0B1A',
+          lineWidth: 2
+        },
+        lineMinLevel: {
+          lineColor: '#204A7B',
+          lineWidth: 2
+        },
+        lineMinConnector: {
+          lineColor: '#204A7B',
+          lineWidth: 2
+        },
+        lineMaxLevel: {
+          lineColor: '#204A7B',
+          lineWidth: 2
+        },
+        lineMaxConnector: {
+          lineColor: '#204A7B',
+          lineWidth: 2
+        }
+      },
+      series: [{
+        dataBox: [
+          [75, 100, 150, 225, 250],
+          [50, 75, 100, 125, 175]
+        ]
+      }]
+    };
+ 
+    zingchart.render({
+      id: 'boxPlotChart',
+      data: boxPlotConfig,
+      width: '100%'
+    });
+}
+
+
 //Create the pie chart
 async function createPieChart() {
   await fetch("https://lelandbove27.site/api/static", {
@@ -123,6 +240,7 @@ async function createAllMetrics() {
   setTimeout(async () => {
     await createPieChart();
   }, 0);
+
 }
 
 createAllMetrics();
