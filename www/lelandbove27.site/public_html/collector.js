@@ -279,9 +279,17 @@ window.addEventListener('unload', (event) => {
         'type': 'unload'
     }
 
-    let localStorageVal = JSON.parse(localStorage.getItem('activityData'));
-    localStorageVal.additionalData.push(obj);
-    localStorage.setItem("activityData", JSON.stringify(localStorageVal));
+    //let localStorageVal = JSON.parse(localStorage.getItem('activityData'));
+    //localStorageVal.additionalData.push(obj);
+    //localStorage.setItem("activityData", JSON.stringify(localStorageVal));
+
+    fetch("/api/activity", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(obj)
+    });
 
 });
 
