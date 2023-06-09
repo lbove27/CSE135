@@ -7,7 +7,7 @@ async function createUserVisits() {
 
 //Create the pie chart
 async function createPieChart() {
-  await fetch("/api/static", {
+  await fetch("https://lelandbove27.site/api/static", {
     method: "GET"
   }).then(response => response.json()).then(data => {
     let staticData = data;
