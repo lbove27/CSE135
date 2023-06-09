@@ -46,6 +46,9 @@ async function createPieChart() {
   ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "b55b025e438fa8a98e32482b5f768ff5"];
   var pieConfig = {
   type: "pie",
+  graph: {
+    backgroundColor: 'black'
+  },
   plot: {
       borderColor: "#000000",
       borderWidth: 5,
