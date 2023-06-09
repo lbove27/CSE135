@@ -88,8 +88,8 @@ app.post("/static", jsonParser, async function(req, res) {
 
   try {
     await client.connect();
-    let session = ((req.headers.cookie).split("sessionId=")[1]).split(';')[0];
-    req.body['data'][0]['sessionId'] = session;
+    //let session = ((req.headers.cookie).split("sessionId=")[1]).split(';')[0];
+    //req.body['data'][0]['sessionId'] = session;
     await client.db("CSE135").collection("StaticData").insertOne(req.body['data'][0]);
   } finally {
     await client.close();
@@ -180,6 +180,7 @@ app.get("/activity/getType/:type", async (req, res) => {
 app.post("/activity", jsonParser, async (req, res) => {
     try {
       await otherClient.connect();
+      /*
       let session = ((req.headers.cookie).split("sessionId=")[1]).split(';')[0];
       console.log(req.body);
       //add session id to everything, add each array (errors, mouseActivity... separately)
@@ -202,7 +203,7 @@ app.post("/activity", jsonParser, async (req, res) => {
       (req.body.additionalData).forEach(obj => {
         obj['sessionId'] = session;
       });
-
+      */
       if(req.body.errors.length > 0) {
         await otherClient.db("CSE135").collection("ActivityData").insertMany(req.body['errors']);
       }

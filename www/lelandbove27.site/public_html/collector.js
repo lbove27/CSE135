@@ -1,5 +1,7 @@
-//const crypto = require("crypto");
-//const sessionId = crypto.randomBytes(16).toString("hex");
+const crypto = require("crypto");
+const sessionId = crypto.randomBytes(16).toString("hex");
+
+sessionStorage.setItem('sessionId', sessionId);
 
 //start the session 
 fetch("/api", {
@@ -104,7 +106,8 @@ window.onload = () => {
             "Timing Object": timingObj,
             "Page Load Start": pageStart,
             "Page Load End": pageEnd,
-            "Total Load Time": totalLoadTime
+            "Total Load Time": totalLoadTime,
+            "Session Id": sessionStorage.getItem('sessionId')
         }
 
         let localStorageVal = JSON.parse(localStorage.getItem('staticData'));
@@ -123,7 +126,8 @@ window.onerror = function(event) {
         "type": "error",
         "errorType": "general",
         "date": date,
-        "User Agent": navigator.userAgent
+        "User Agent": navigator.userAgent,
+        "Session Id": sessionStorage.getItem('sessionId')
     }
 
     let localStorageVal = JSON.parse(localStorage.getItem('activityData'));
@@ -138,7 +142,8 @@ window.addEventListener('error', function(event) {
         "type": "error",
         "errorType": "http",
         "date": date,
-        "User Agent": navigator.userAgent
+        "User Agent": navigator.userAgent,
+        "Session Id": sessionStorage.getItem('sessionId')
     }
     let localStorageVal = JSON.parse(localStorage.getItem('activityData'));
     localStorageVal.errors.push(obj);
@@ -157,7 +162,8 @@ window.addEventListener("mousemove", (event) => {
     let obj = {
         'type': type,
         'x': x,
-        'y': y
+        'y': y,
+        "Session Id": sessionStorage.getItem('sessionId')
     }
 
     let localStorageVal = JSON.parse(localStorage.getItem('activityData'));
@@ -184,7 +190,8 @@ window.addEventListener("mousedown", (event) => {
         'mouseButton': mouseButton,
         'x': x,
         'y': y,
-        'type': 'click'
+        'type': 'click',
+        "Session Id": sessionStorage.getItem('sessionId')
     }
 
     let localStorageVal = JSON.parse(localStorage.getItem('activityData'));
@@ -199,7 +206,8 @@ window.addEventListener("scroll", (event) => {
     
     let obj = {
         'scrollPercentage': scrollPercentage,
-        'type': 'scroll'
+        'type': 'scroll',
+        "Session Id": sessionStorage.getItem('sessionId')
     }
     let localStorageVal = JSON.parse(localStorage.getItem('activityData'));
     localStorageVal.mouseActivity.push(obj);
@@ -216,7 +224,8 @@ window.addEventListener("keydown", (event) => {
     let obj = {
         'type': 'key press',
         'key': key,
-        'keyEvent': keyEvent
+        'keyEvent': keyEvent,
+        "Session Id": sessionStorage.getItem('sessionId')
     }
 
     let localStorageVal = JSON.parse(localStorage.getItem('activityData'));
@@ -247,7 +256,8 @@ function restartTimer() {
         let obj = {
             'startTime': startIdle,
             'duration': time,
-            'type': 'idle'
+            'type': 'idle',
+            "Session Id": sessionStorage.getItem('sessionId')
         }
         let localStorageVal = JSON.parse(localStorage.getItem('activityData'));
         localStorageVal.idleTime.push(obj);
@@ -280,7 +290,8 @@ window.addEventListener('beforeunload', async (event) => {
         'endTime': endTime,
         'totalTimeSpent': totalTimeSpent,
         'page': page,
-        'type': 'unload'
+        'type': 'unload',
+        "Session Id": sessionStorage.getItem('sessionId')
     }
 
     let localStorageVal = JSON.parse(localStorage.getItem('activityData'));
