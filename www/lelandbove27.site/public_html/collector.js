@@ -267,7 +267,7 @@ document.addEventListener('keydown', restartTimer);
 let endTime;
 let page;
 //additional data (time user enters, leaves, and which page)
-document.addEventListener('beforeunload', (event) => {
+window.addEventListener('beforeunload', (event) => {
     //remember to add the startTime from above
     endTime = new Date(); 
     page = window.location.href;
@@ -290,7 +290,7 @@ document.addEventListener('beforeunload', (event) => {
         },
         body: JSON.stringify({obj})
     });
-
+    event.returnValue = "Thanks!";
 });
 
 //send data / store in local storage / retrieve from local storage every minute 
