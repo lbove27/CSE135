@@ -64,7 +64,7 @@ window.onload = () => {
     let windowHeight = window.innerHeight;
 
     //get the time the user entered the page
-    let startTime = new Date();
+    startTime = new Date();
 
     //performance data
 
