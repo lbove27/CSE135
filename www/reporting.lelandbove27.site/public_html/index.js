@@ -71,6 +71,10 @@ async function createPieChart() {
           sequence: 1,
         }
       },
+      legend: {
+        visible: true,
+        toggleAction: 'hide'
+      },
       title: {
         fontColor: "#8e99a9",
         text: 'Pie Chart - Browser Usage',
