@@ -7,6 +7,7 @@ const sessionId = crypto.randomBytes(16).toString("hex");
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const uri = "mongodb+srv://lbove:tHpwlEOR0dxptTgt@cluster0.lbkxxfj.mongodb.net/?retryWrites=true&w=majority";
 
+
 const client = new MongoClient(uri, {
     serverApi: {
       version: ServerApiVersion.v1,
@@ -34,11 +35,13 @@ const client = new MongoClient(uri, {
 
 //Express Endpoints 
 const express = require('express');
+const cors = require('cors');
 ///const cookieParser = require('cookie-parser');
 const app = express();
 const port = 3001;
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
+app.use(cors({ origin: ['https://lelandbove27.site', 'https://reporting.lelandbove27.site'] }))
 //app.use(cookieParser());
 //app.use(session());
 
