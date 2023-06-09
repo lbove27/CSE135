@@ -276,7 +276,7 @@ window.addEventListener('beforeunload', async (event) => {
     let obj = {
         'startTime': startTime,
         'endTime': endTime,
-        'totalTimeSpent': ((endDate.getTime() - startDate.getTime()) / 1000),
+        'totalTimeSpent': ((endDate - startDate) / 1000),
         'page': page,
         'type': 'unload'
     }
