@@ -1,7 +1,7 @@
 //const crypto = window.crypto;
 //const sessionId = crypto.randomBytes(16).toString("hex");
 const randomValues = crypto.getRandomValues(new Uint8Array(2));
-let sessionId = Array.from(randomValues).map(int => int.toString(16).padStart(2, '0')).join('');
+let sessionId = Array.from(randomValues).map(byte => byte.toString(16).padStart(2, '0')).join('');
 
 
 sessionStorage.setItem('sessionId', sessionId);
