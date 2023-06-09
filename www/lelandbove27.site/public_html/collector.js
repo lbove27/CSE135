@@ -1,4 +1,4 @@
-const crypto = require("crypto");
+//const crypto = require("crypto");
 const sessionId = crypto.randomBytes(16).toString("hex");
 
 sessionStorage.setItem('sessionId', sessionId);
