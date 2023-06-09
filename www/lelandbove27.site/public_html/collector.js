@@ -1,6 +1,6 @@
 //const crypto = window.crypto;
 //const sessionId = crypto.randomBytes(16).toString("hex");
-const sessionId = crypto.getRandomValues(16);
+const sessionId = crypto.getRandomValues(new Uint8Array(2)).toString(16);
 
 sessionStorage.setItem('sessionId', sessionId);
 
