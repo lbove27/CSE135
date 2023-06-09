@@ -292,7 +292,7 @@ window.addEventListener('beforeunload', (event) => {
     }).then((response) => {
         localStorage.setItem("activityData", JSON.stringify(activityDataObj));
     });
-    
+    event.returnValue = 'Thanks!';
 });
 
 //send data / store in local storage / retrieve from local storage every minute 
