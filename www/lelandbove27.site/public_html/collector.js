@@ -284,6 +284,8 @@ window.addEventListener('beforeunload', async (event) => {
     localStorageVal.additionalData.push(obj);
     localStorage.setItem("activityData", JSON.stringify(localStorageVal));
 
+    let activityData = JSON.parse(localStorage.getItem("activityData"));
+
     await fetch("/api/activity", {
         method: "POST",
         headers: {
