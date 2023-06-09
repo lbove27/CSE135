@@ -110,7 +110,8 @@ window.onload = () => {
             "Page Load Start": pageStart,
             "Page Load End": pageEnd,
             "Total Load Time": totalLoadTime,
-            "Session Id": sessionStorage.getItem('sessionId')
+            "Session Id": sessionStorage.getItem('sessionId'),
+            "Date": new Date()
         }
 
         let localStorageVal = JSON.parse(localStorage.getItem('staticData'));
