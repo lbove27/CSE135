@@ -279,18 +279,20 @@ window.addEventListener('beforeunload', (event) => {
         'type': 'unload'
     }
 
-    //let localStorageVal = JSON.parse(localStorage.getItem('activityData'));
-    //localStorageVal.additionalData.push(obj);
-    //localStorage.setItem("activityData", JSON.stringify(localStorageVal));
+    let localStorageVal = JSON.parse(localStorage.getItem('activityData'));
+    localStorageVal.additionalData.push(obj);
+    localStorage.setItem("activityData", JSON.stringify(localStorageVal));
 
     fetch("/api/activity", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify([{obj}])
+        body: JSON.stringify(activityData)
+    }).then((response) => {
+        localStorage.setItem("activityData", JSON.stringify(activityDataObj));
     });
-    event.returnValue = "Thanks!";
+    
 });
 
 //send data / store in local storage / retrieve from local storage every minute 
