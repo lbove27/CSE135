@@ -14,3 +14,8 @@ html, body {
 .zc-ref {
     display: none;
 }
+
+* {
+    background-color: black;
+    color: white;
+}
