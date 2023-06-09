@@ -82,22 +82,22 @@ async function createPieChart() {
       series: [{
           values: [edgePercentage],
           text: "Microsoft Edge",
-          backgroundColor: '#00FF7F',
+          backgroundColor: '#0078d7',
         },
         {
           values: [chromePercentage],
           text: "Chrome",
-          backgroundColor: '#FFCB45',
+          backgroundColor: '#FDD20A',
         },
         {
           values: [firefoxPercentage],
           text: 'Firefox',
-          backgroundColor: '#FF4500',
+          backgroundColor: '#E66000',
         },
         {
           text: 'Other',
           values: [otherPercentage],
-          backgroundColor: '#6FB07F'
+          backgroundColor: '#D3D3D3'
         }
       ]
     };
