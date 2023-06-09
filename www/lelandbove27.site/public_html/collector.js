@@ -267,9 +267,9 @@ document.addEventListener('keydown', restartTimer);
 let endTime;
 let page;
 //additional data (time user enters, leaves, and which page)
-window.addEventListener('unload', (event) => {
+window.addEventListener('onbeforeunload', (event) => {
     //remember to add the startTime from above
-    endTime = new Date();
+    endTime = new Date(); 
     page = window.location.href;
 
     let obj = {
