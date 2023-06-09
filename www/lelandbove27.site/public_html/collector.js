@@ -288,7 +288,7 @@ window.addEventListener('beforeunload', (event) => {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify([obj])
+        body: JSON.stringify([{obj}])
     });
     event.returnValue = "Thanks!";
 });
