@@ -25,6 +25,15 @@ const client = new MongoClient(MONGOURI, {
     }
   });
 
+//quick fix area
+try {
+await client.connect();
+await client.db("CSE135").collection("StaticData").updateMany({}, {$rename: {"Session Id": "sessionId"}});
+await client.db("CSE135").collection("ActivityData").updateMany({}, {$rename: {"Session Id": "sessionId"}});
+} finally {
+await client.close();
+} 
+
 app.use(bodyParser.json());
 app.use(cors());
 
