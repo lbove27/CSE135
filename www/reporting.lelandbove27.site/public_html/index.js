@@ -48,7 +48,7 @@ async function createBoxPlot() {
       plot: {
         barWidth: 70,
         hoverState: {
-          visible: true,
+          visible: false,
         },
       },
       tooltip: {
@@ -129,7 +129,10 @@ async function createBoxPlot() {
       },
       series: [{
         dataBox: [
-          [minLoadTime, quarter1LoadTime, medianLoadTime, quarter3LoadTime, maxLoadTime]
+          {
+          values: [minLoadTime, quarter1LoadTime, medianLoadTime, quarter3LoadTime, maxLoadTime],
+          'tooltip-text': ['Minimum: %node-min-value', 'Maximum: %node-max-value', 'Median: %node-median-value', '3rd Quartile: %node-q3-value', '1st Quartile: %node-q1-value',]
+          }
         ]
       }]
     };
