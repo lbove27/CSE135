@@ -30,8 +30,8 @@
         sessionStorage.removeItem("auth_token");
         window.location.href='../../logout.html';
       }
-
-      zg.setColumns(['Session Id', 'startTime', 'endTime', 'totalTimeSpent', 'page']);
+      let grid = document.getElementById('grid');
+      grid.setColumns(['Session Id', 'startTime', 'endTime', 'totalTimeSpent', 'page']);
     </script>
     <script src="../../index.js"></script>
   </body>
