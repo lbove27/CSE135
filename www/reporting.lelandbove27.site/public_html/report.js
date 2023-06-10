@@ -220,38 +220,6 @@ async function createBarChart() {
                 "border-color": 'black',
                 "text": "HTTP Errors"
               },
-              /*
-              {
-                "values": [
-                  generalEdge,
-                  httpEdge,
-                ],
-                "alpha": 0.95,
-                "borderRadiusTopLeft": 7,
-                "background-color": "#00FF7F",
-                "text": "Microsoft Edge"
-              },
-              {
-                "values": [
-                  generalEdge,
-                  httpEdge,
-                ],
-                "alpha": 0.95,
-                "borderRadiusTopLeft": 7,
-                "background-color": "#00FF7F",
-                "text": "Microsoft Edge"
-              },
-              {
-                "values": [
-                  generalEdge,
-                  httpEdge,
-                ],
-                "alpha": 0.95,
-                "borderRadiusTopLeft": 7,
-                "background-color": "#00FF7F",
-                "text": "Microsoft Edge"
-              },
-              */
             ]
           }]
         };
