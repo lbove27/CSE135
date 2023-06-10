@@ -56,7 +56,7 @@ async function createBoxPlot() {
     let quarter3LoadTime = sortedTimes[3 * Math.floor(sortedTimes.length / 4)];
 
     let expectedTime = document.getElementById('expected-time');
-    expectedTime.innerHTML = medianLoadtime + " seconds";
+    expectedTime.innerHTML = medianLoadTime + " seconds";
 
     let boxPlotConfig = {
       type: 'boxplot',
