@@ -13,7 +13,7 @@ async function createBarChart() {
         let httpChrome = 0;
         let generalChrome = 0;
         let httpFirefox = 0;
-        let generalFirefox = 0;
+        let generalFirefox = 0; 
         let httpEdge = 0;
         let generalEdge = 0;
         let httpSafari = 0;
