@@ -272,8 +272,6 @@ async function createBrowserBarChart() {
             "margin": "dynamic"
           },
           "legend": {
-            "layout": "x3",
-            "overflow": "page",
             "alpha": 0.05,
             "shadow": false,
             "align": "center",
