@@ -24,7 +24,7 @@ async function createBarChart() {
 
         let staticDataSet = [];
         staticData.forEach(obj => {
-            staticDataSet.push(obj['Session Id']);
+            staticDataSet.push(obj['sessionId']);
         });
         staticDataSet.forEach(static => {
           activityData.forEach(activity => {
