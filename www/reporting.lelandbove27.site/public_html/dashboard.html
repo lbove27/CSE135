@@ -16,9 +16,7 @@
     </div>
     <div id='pieChart'><a class="zc-ref" href="https://www.zingchart.com/">Charts by ZingChart</a></div>
     <div id='boxPlotChart'><a class="zc-ref" href="https://www.zingchart.com/">Charts by ZingChart</a></div>
-    <zing-grid src="https://lelandbove27.site/api/activity/getType/unload" caption="User Entry Time, Exit Time, and Total Time Spent on the Given Page" id="grid" sorter pager page-size="10" fields="Session Id, startTime, endTime, totalTimeSpent, page">
-      
-    </zing-grid>
+    <zing-grid src="https://lelandbove27.site/api/activity/getType/unload" caption="User Entry Time, Exit Time, and Total Time Spent on the Given Page" id="grid" sorter pager page-size="10" fields="-type, -_id"></zing-grid>
     <button id='logout'>Logout</button>
     <script>
       let logoutButton = document.getElementById('logout');
