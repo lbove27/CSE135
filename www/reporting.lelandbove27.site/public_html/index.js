@@ -48,8 +48,9 @@ async function createBoxPlot() {
       plot: {
         barWidth: 70,
         hoverState: {
-          visible: false,
-        }
+          visible: true,
+        },
+
       },
       tooltip: {
         text: '%data-value',
@@ -88,7 +89,7 @@ async function createBoxPlot() {
           lineColor: '#7F7F7F'
         },
         guide: {
-          visible: true
+          visible: false
         }
       },
       options: {
@@ -128,10 +129,9 @@ async function createBoxPlot() {
         }
       },
       series: [{
-        databox: [
-          [[minLoadTime, quarter1LoadTime, medianLoadTime, quarter3LoadTime, maxLoadTime]]
-        ],
-        //'tooltip-text': ['Minimum: %node-min-value', 'Maximum: %node-max-value', 'Median: %node-median-value', '3rd Quartile: %node-q3-value', '1st Quartile: %node-q1-value']
+        dataBox: [
+          [minLoadTime, quarter1LoadTime, medianLoadTime, quarter3LoadTime, maxLoadTime]
+        ]
       }]
     };
  
@@ -260,7 +260,7 @@ async function createAllMetrics() {
   }, 0);
   setTimeout(async () => {
     await createBoxPlot();
-  }, 1000);
+  }, 500);
 }
 
 createAllMetrics();
