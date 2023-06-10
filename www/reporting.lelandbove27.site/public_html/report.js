@@ -1,5 +1,18 @@
 ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "b55b025e438fa8a98e32482b5f768ff5"];
 
+async function createTotalErrors() {
+    await fetch("https://lelandbove27.site/api/activity/getType/error", {
+        method: "GET"
+    }).then(response => response.json()).then(data => {
+        let totalCount = 0;
+        data.forEach(obj => {
+            totalCount++;
+        });
+        let totalErrorDisplay = document.getElementById('total-errors');
+        totalErrorDisplay.innerHTML = totalCount;
+    });
+}
+
 async function createBarChart() {
     await fetch("https://lelandbove27.site/api/activity/getType/error", {
       method: "GET"
@@ -428,13 +441,13 @@ async function createBrowserBarChart() {
 
   async function createAllMetrics() {
     setTimeout(async () => {
-      await createBarChart();
+      await createTotalErrors();
     }, 1000);
     setTimeout(async () => {
-      await createBrowserBarChart();
+      await createBarChart();
     }, 2000);
     setTimeout(async () => {
-      
+      await createBrowserBarChart();
     }, 3000);
   }
     
