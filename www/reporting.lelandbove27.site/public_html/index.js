@@ -33,6 +33,7 @@ async function createUserVisits() {
 
 } 
 
+
  //Create the load times box plot
 async function createBoxPlot() {
     let loadTimes = [];

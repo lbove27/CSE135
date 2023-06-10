@@ -410,13 +410,13 @@ async function createBrowserBarChart() {
   async function createAllMetrics() {
     setTimeout(async () => {
       await createTotalErrors();
-    }, 1000);
+    }, 0);
     setTimeout(async () => {
       await createBarChart();
-    }, 2000);
+    }, 0);
     setTimeout(async () => {
       await createBrowserBarChart();
-    }, 3000);
+    }, 0);
   }
     
   
