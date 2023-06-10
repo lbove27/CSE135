@@ -182,7 +182,10 @@ async function createBarChart() {
             "series": [{
                 "values": [
                   generalChrome, 
-                  httpChrome
+                  generalSafari, 
+                  generalEdge,
+                  generalFirefox,
+                  generalOther
                 ],
                 "alpha": 0.95,
                 "borderRadiusTopLeft": 7,
@@ -191,13 +194,27 @@ async function createBarChart() {
               },
               {
                 "values": [
-                  generalFirefox,
+                  httpChrome,
+                  httpSafari,
+                  httpEdge,
                   httpFirefox,
+                  httpOther,
                 ],
                 "borderRadiusTopLeft": 7,
                 "alpha": 0.95,
                 "background-color": "#FF4500",
                 "text": "Firefox"
+              },
+              /*
+              {
+                "values": [
+                  generalEdge,
+                  httpEdge,
+                ],
+                "alpha": 0.95,
+                "borderRadiusTopLeft": 7,
+                "background-color": "#00FF7F",
+                "text": "Microsoft Edge"
               },
               {
                 "values": [
@@ -209,6 +226,17 @@ async function createBarChart() {
                 "background-color": "#00FF7F",
                 "text": "Microsoft Edge"
               },
+              {
+                "values": [
+                  generalEdge,
+                  httpEdge,
+                ],
+                "alpha": 0.95,
+                "borderRadiusTopLeft": 7,
+                "background-color": "#00FF7F",
+                "text": "Microsoft Edge"
+              },
+              */
             ]
           }]
         };
