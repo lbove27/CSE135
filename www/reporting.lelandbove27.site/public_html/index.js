@@ -52,20 +52,21 @@ async function createBoxPlot() {
         }
       },
       tooltip: {
+        text: '%data-value',
         shadow: false,
         borderRadius: 3,
         rules: [{
             rule: '%i == 0',
-            backgrounCcolor: '#9A8AAD'
+            backgroundColor: '#9A8AAD'
           },
         ]
       },
-      /*
+      
       scaleX: {
         offsetStart: 40,
         offsetEnd: 40,
-        lineColor: 'none',
-        //labels: [''],
+        lineColor: '#000000',
+        labels: [''],
         tick: {
           visible: false
         },
@@ -76,7 +77,7 @@ async function createBoxPlot() {
           visible: false
         }
       },
-      */
+      
       scaleY: {
         offsetStart: 0,
         offsetEnd: 3,
