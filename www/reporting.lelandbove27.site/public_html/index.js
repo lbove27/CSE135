@@ -60,6 +60,7 @@ async function createBoxPlot() {
           },
         ]
       },
+      /*
       scaleX: {
         offsetStart: 40,
         offsetEnd: 40,
@@ -75,6 +76,7 @@ async function createBoxPlot() {
           visible: false
         }
       },
+      */
       scaleY: {
         offsetStart: 0,
         offsetEnd: 3,
