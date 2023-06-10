@@ -50,8 +50,9 @@ async function createBoxPlot() {
         hoverState: {
           visible: true,
         },
+        aspect: 'spline',
         lineExtension: {
-          value: true
+          value: true,
         }
       },
       tooltip: {
@@ -84,7 +85,7 @@ async function createBoxPlot() {
       scaleY: {
         offsetStart: 0,
         offsetEnd: 3,
-        values: '-0.5:3:0.3',
+        values: '0:3:0.3',
         format: '%v seconds',
         lineColor: '#7F7F7F',
         tick: {
