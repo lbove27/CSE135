@@ -288,6 +288,7 @@ async function createBrowserBarChart() {
             other++;
           }
 
+
           var browserBarConfig = {
             "graphset": [{
               "type": "bar",
@@ -345,7 +346,7 @@ async function createBrowserBarChart() {
                 "item": {
                   "font-color": "#7e7e7e"
                 },
-                "values": "0:60:10",
+                "values": "0:" + (chrome * 1.4) + ":5",
                 "guide": {
                   "visible": true
                 },
@@ -428,10 +429,10 @@ async function createBrowserBarChart() {
   async function createAllMetrics() {
     setTimeout(async () => {
       await createBarChart();
-    }, 1000);
+    }, 500);
     setTimeout(async () => {
       await createBrowserBarChart();
-    }, 2000);
+    }, 1500);
     setTimeout(async () => {
       
     }, 2000);
