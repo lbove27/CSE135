@@ -76,8 +76,7 @@ async function createBoxPlot() {
       scaleY: {
         offsetStart: 0,
         offsetEnd: 3,
-        values: '0:1:0.5',
-        format: '$%v K',
+        values: '0:3:0.5',
         lineColor: '#7F7F7F',
         tick: {
           lineColor: '#7F7F7F'
@@ -254,7 +253,7 @@ async function createAllMetrics() {
   }, 0);
   setTimeout(async () => {
     await createBoxPlot();
-  }, 1000);
+  }, 500);
 }
 
 createAllMetrics();
