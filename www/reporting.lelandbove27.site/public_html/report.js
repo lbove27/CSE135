@@ -133,6 +133,7 @@ async function createBarChart() {
             "plot": {
               "bars-space-left": 0.1,
               "bars-space-right": 0.1,
+              "stacked": true,
               "animation": {
                 "effect": "ANIMATION_SLIDE_BOTTOM",
                 "sequence": 4,
