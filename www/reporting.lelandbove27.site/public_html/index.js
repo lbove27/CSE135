@@ -260,7 +260,7 @@ async function createAllMetrics() {
   }, 0);
   setTimeout(async () => {
     await createBoxPlot();
-  }, 500);
+  }, 1000);
 }
 
 createAllMetrics();
