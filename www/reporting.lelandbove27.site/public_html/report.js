@@ -24,12 +24,12 @@ async function createBarChart() {
 
         let staticDataSet = new Set();
         staticData.forEach(obj => {
-            staticDataSet.add(obj['sessionId']);
+            staticDataSet.add({'sessionId': obj['sessionId'], 'User Agent': obj['User Agent']});
         });
         staticDataSet.forEach(static => {
           activityData.forEach(activity => {
-            if(activity['sessionId'] == static) {
-                let userAgent = obj["User Agent"];
+            if(activity['sessionId'] == static['sessionId']) {
+                let userAgent = static["User Agent"];
                 let chromeBool = userAgent.includes('Chrome');
                 let edgeBool = userAgent.includes('Edg');
                 let firefoxBool = userAgent.includes('Fx') || userAgent.includes('Firefox');
