@@ -168,12 +168,14 @@ async function createPieChart() {
     let chrome = 0;
     let firefox = 0;
     let edge = 0;
+    let safari = 0;
     let other = 0;
     staticData.forEach(obj => {
       let userAgent = obj["User Agent"];
       let chromeBool = userAgent.includes('Chrome');
       let edgeBool = userAgent.includes('Edg');
       let firefoxBool = userAgent.includes('Fx') || userAgent.includes('Firefox');
+      let safariBool = userAgent.includes('Safari') && !userAgent.includes('Chrome');
       if(chromeBool && !firefoxBool && !edgeBool) {
         chrome++;
       }
@@ -183,6 +185,9 @@ async function createPieChart() {
       else if(edgeBool) {
         edge++;
       }
+      else if(safariBool) {
+        safari++;
+      }
       else {
         other++;
       }
@@ -191,6 +196,7 @@ async function createPieChart() {
     let chromePercentage = (chrome / total) * 100;
     let firefoxPercentage = (firefox / total) * 100;
     let edgePercentage = (edge / total) * 100;
+    let safariPercentage = (safari / total) * 100;
     let otherPercentage = (other / total) * 100;
 
     //pie chart configuration and rendering
@@ -239,7 +245,7 @@ async function createPieChart() {
       series: [{
           values: [edgePercentage],
           text: "Microsoft Edge",
-          backgroundColor: '#0078d7',
+          backgroundColor: '#7FBA00',
         },
         {
           values: [chromePercentage],
@@ -250,6 +256,11 @@ async function createPieChart() {
           values: [firefoxPercentage],
           text: 'Firefox',
           backgroundColor: '#E66000',
+        },
+        {
+          values: [safariPercentage],
+          text: 'Safari',
+          backgroundColor: '#006CFF',
         },
         {
           text: 'Other',
