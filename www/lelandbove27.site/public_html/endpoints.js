@@ -62,7 +62,7 @@ app.get("/static", async (req, res) => {
       finalResult.push(doc);
     }
   } finally {
-    await client.close();
+    //await client.close();
   } 
 
   res.status(200);
@@ -77,7 +77,7 @@ app.get("/static/:id", async (req, res) => {
     result = await client.db("CSE135").collection("StaticData").findOne({ _id: new ObjectId(req.params.id) });
 
   } finally {
-    await client.close();
+    //await client.close();
   } 
   
   res.status(200);
@@ -95,7 +95,7 @@ app.post("/static", jsonParser, async function(req, res) {
     //req.body['data'][0]['sessionId'] = session;
     await client.db("CSE135").collection("StaticData").insertOne(req.body['data'][0]);
   } finally {
-    await client.close();
+    //await client.close();
   } 
   
   res.status(200);
@@ -110,7 +110,7 @@ app.put("/static/:id/:language", async (req, res) => {
     let updateLanguage = { $set: { "Language": req.params.language }};
     await putClient.db("CSE135").collection("StaticData").updateOne(getWithId, updateLanguage);
   } finally {
-    await putClient.close();
+    //await putClient.close();
   } 
   res.status(200);
   res.send();
@@ -122,7 +122,7 @@ app.delete("/static/:id", async (req, res) => {
     let getWithId = { _id: new ObjectId(req.params.id)};
     await client.db("CSE135").collection("StaticData").deleteOne(getWithId);
   } finally {
-    await client.close();
+    //await client.close();
   } 
   res.status(200);
   res.send();
@@ -139,7 +139,7 @@ app.get("/activity", async (req, res) => {
       finalResult.push(doc);
     }
   } finally {
-    await otherClient.close();
+    //await otherClient.close();
   } 
 
   res.status(200);
@@ -154,7 +154,7 @@ app.get("/activity/:id", async (req, res) => {
     result = await client.db("CSE135").collection("ActivityData").findOne({ _id: new ObjectId(req.params.id) });
 
   } finally {
-    await client.close();
+    //await client.close();
   } 
   
   res.status(200);
@@ -172,7 +172,7 @@ app.get("/activity/getType/:type", async (req, res) => {
       finalResult.push(doc);
     }
   } finally {
-    await client.close();
+    //await client.close();
   } 
   
   res.status(200);
@@ -224,7 +224,7 @@ app.post("/activity", jsonParser, async (req, res) => {
       }
       
     } finally {
-      await otherClient.close();
+      //await otherClient.close();
     } 
 
     res.status(200);
@@ -238,7 +238,7 @@ app.put("/activity/:id/:type", async (req, res) => {
     let updateLanguage = { $set: { "type": req.params.type }};
     await putClient.db("CSE135").collection("ActivityData").updateOne(getWithId, updateLanguage);
   } finally {
-    await putClient.close();
+    //await putClient.close();
   } 
   res.status(200);
   res.send();
@@ -250,7 +250,7 @@ app.delete("/activity/:id", async (req, res) => {
     let getWithId = { _id: new ObjectId(req.params.id)};
     await client.db("CSE135").collection("ActivityData").deleteOne(getWithId);
   } finally {
-    await client.close();
+    //await client.close();
   } 
   res.status(200);
   res.send();
