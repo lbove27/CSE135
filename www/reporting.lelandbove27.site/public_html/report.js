@@ -28,7 +28,7 @@ async function createBarChart() {
         });
         staticDataSet.forEach(static => {
           activityData.forEach(activity => {
-            if(activity['sessionId'] == static['sessionId']) {
+            if(activity['sessionId'] == static) {
                 let userAgent = obj["User Agent"];
                 let chromeBool = userAgent.includes('Chrome');
                 let edgeBool = userAgent.includes('Edg');
