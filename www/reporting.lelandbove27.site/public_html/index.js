@@ -12,7 +12,7 @@ async function createBounceRate() {
       }
       totalCount++;
       let bounceDisplay = document.getElementById('bounce-rate');
-      bounceDisplay.innerHTML = (bounceCount / totalCount) + "%";
+      bounceDisplay.innerHTML = ((bounceCount / totalCount) * 100) + "%";
     });
   });
 }
