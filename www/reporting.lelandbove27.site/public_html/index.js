@@ -74,9 +74,9 @@ async function createBoxPlot() {
         }
       },
       scaleY: {
-        offsetStart: 20,
-        offsetEnd: 20,
-        values: '50:250:25',
+        offsetStart: 0,
+        offsetEnd: 3,
+        values: '0:1:0.5',
         format: '$%v K',
         lineColor: '#7F7F7F',
         tick: {
@@ -132,7 +132,8 @@ async function createBoxPlot() {
     zingchart.render({
       id: 'boxPlotChart',
       data: boxPlotConfig,
-      width: '100%'
+      width: '100%',
+      height: '100%'
     });
 }
 
