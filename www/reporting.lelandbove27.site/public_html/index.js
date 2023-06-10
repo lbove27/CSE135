@@ -15,7 +15,9 @@ async function createBoxPlot() {
     }).then(response => response.json()).then(data => {
       let staticData = data;
       staticData.forEach(obj => {
-        loadTimes.push(obj["Total Load Time"]);
+        if(obj["Total Load Time"] < 3) {
+          loadTimes.push(obj["Total Load Time"]);
+        }
       });
     });
 
@@ -62,7 +64,7 @@ async function createBoxPlot() {
         offsetStart: 40,
         offsetEnd: 40,
         lineColor: 'none',
-        labels: ['Load Time'],
+        //labels: [''],
         tick: {
           visible: false
         },
@@ -77,7 +79,7 @@ async function createBoxPlot() {
         offsetStart: 0,
         offsetEnd: 3,
         values: '0:3:0.5',
-        format: '$%v seconds',
+        format: ' seconds',
         lineColor: '#7F7F7F',
         tick: {
           lineColor: '#7F7F7F'
