@@ -57,6 +57,8 @@ async function createBoxPlot() {
     let quarter1LoadTime = sortedTimes[Math.floor(sortedTimes.length / 4)];
     let quarter3LoadTime = sortedTimes[3 * Math.floor(sortedTimes.length / 4)];
 
+
+
     let boxPlotConfig = {
       type: 'boxplot',
       backgroundColor: '#FFFFFF',
@@ -304,13 +306,13 @@ async function createAllMetrics() {
   }, 1000);
   setTimeout(async () => {
     await createBounceRate();
-  }, 1500);
-  setTimeout(async () => {
-    await createPieChart();
   }, 2000);
   setTimeout(async () => {
-    await createBoxPlot();
+    await createPieChart();
   }, 2500);
+  setTimeout(async () => {
+    await createBoxPlot();
+  }, 3000);
 }
   
 
