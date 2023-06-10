@@ -5,7 +5,7 @@ async function createBarChart() {
       method: "GET"
     }).then(response => response.json()).then(data => {
       let activityData = data;
-      fetch("/api/static", {
+      fetch("https://lelandbove27.site/api/static", {
         method: "GET"
       }).then(response2 => response2.json()).then(data2 => {
         let staticData = data2;
