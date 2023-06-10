@@ -131,7 +131,7 @@ async function createBoxPlot() {
         databox: [
           [[minLoadTime, quarter1LoadTime, medianLoadTime, quarter3LoadTime, maxLoadTime]]
         ],
-        'tooltip-text': ['Minimum: %node-min-value', 'Maximum: %node-max-value', 'Median: %node-median-value', '3rd Quartile: %node-q3-value', '1st Quartile: %node-q1-value']
+        //'tooltip-text': ['Minimum: %node-min-value', 'Maximum: %node-max-value', 'Median: %node-median-value', '3rd Quartile: %node-q3-value', '1st Quartile: %node-q1-value']
       }]
     };
  
