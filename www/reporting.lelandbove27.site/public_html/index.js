@@ -133,7 +133,6 @@ async function createBoxPlot() {
       id: 'boxPlotChart',
       data: boxPlotConfig,
       width: '100%',
-      height: '100%'
     });
 }
 
@@ -255,7 +254,7 @@ async function createAllMetrics() {
   }, 0);
   setTimeout(async () => {
     await createBoxPlot();
-  }, 0);
+  }, 1000);
 }
 
 createAllMetrics();
