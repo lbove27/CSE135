@@ -41,7 +41,9 @@ async function createBoxPlot() {
         offsetY: '36%'
       },
       subtitle: {
-        text: 'All load times with min/max, median, and 1st and 3rd quartiles'
+        text: 'All load times with min/max, median, and 1st and 3rd quartiles',
+        fontSize: 18,
+        color: 'black'
       },
       plotarea: {
         marginTop: '20%',
