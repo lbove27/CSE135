@@ -17,8 +17,6 @@ async function createBounceRate() {
   });
 }
 
-
-
 async function createUserVisits() {
   let userVisitsLocation = document.getElementById('user-visits');
   let sessionIdSet = new Set();
@@ -57,7 +55,8 @@ async function createBoxPlot() {
     let quarter1LoadTime = sortedTimes[Math.floor(sortedTimes.length / 4)];
     let quarter3LoadTime = sortedTimes[3 * Math.floor(sortedTimes.length / 4)];
 
-
+    let expectedTime = document.getElementById('expected-time');
+    expectedTime.innerHTML = medianLoadtime + " seconds";
 
     let boxPlotConfig = {
       type: 'boxplot',
