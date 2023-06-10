@@ -33,12 +33,15 @@ async function createBoxPlot() {
       type: 'boxplot',
       backgroundColor: '#FFFFFF',
       title: {
-        text: 'Page Load Time',
+        text: 'Page Load Times',
         backgroundColor: 'none',
         color: 'black',
         fontSize: 24,
         fontWeight: 'none',
         offsetY: '36%'
+      },
+      subtitle: {
+        text: 'All load times with min/max, median, and 1st and 3rd quartiles'
       },
       plotarea: {
         marginTop: '20%',
