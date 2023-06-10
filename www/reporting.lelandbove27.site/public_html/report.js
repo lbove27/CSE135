@@ -188,9 +188,10 @@ async function createBarChart() {
                   generalOther
                 ],
                 "alpha": 0.95,
-                "borderRadiusTopLeft": 7,
-                "background-color": "#FFCB45",
-                "text": "Chrome",
+                "borderRadiusTopLeft": 0,
+                "background-color": "#990F02",
+                "border-color": 'black',
+                "text": "General Errors",
               },
               {
                 "values": [
@@ -200,10 +201,11 @@ async function createBarChart() {
                   httpFirefox,
                   httpOther,
                 ],
-                "borderRadiusTopLeft": 7,
+                "borderRadiusTopLeft": 0,
                 "alpha": 0.95,
-                "background-color": "#FF4500",
-                "text": "Firefox"
+                "background-color": "#E3242B",
+                "border-color": 'black',
+                "text": "HTTP Errors"
               },
               /*
               {
