@@ -18,10 +18,10 @@
     <div id='boxPlotChart'><a class="zc-ref" href="https://www.zingchart.com/">Charts by ZingChart</a></div>
     <zing-grid src="https://lelandbove27.site/api/activity/getType/unload" caption="User Entry Time, Exit Time, and Total Time Spent on the Given Page" id="grid" sorter pager page-size="10">
       <zg-column index="0" field="Session Id" header="Session Id"></zg-column>
-      <zg-column index="1" field="Start Time" header="Start Time"></zg-column>
-      <zg-column index="2" field="End Time" header="End Time"></zg-column>
-      <zg-column index="3" field="Total Time Spent" header="Total Time Spent"></zg-column>
-      <zg-column index="4" field="Page" header="Page"></zg-column>
+      <zg-column index="1" field="startTime" header="Start Time"></zg-column>
+      <zg-column index="2" field="endTime" header="End Time"></zg-column>
+      <zg-column index="3" field="totalTimeSpent" header="Total Time Spent"></zg-column>
+      <zg-column index="4" field="page" header="Page"></zg-column>
     </zing-grid>
     <button id='logout'>Logout</button>
     <script>
