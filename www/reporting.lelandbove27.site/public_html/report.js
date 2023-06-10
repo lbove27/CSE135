@@ -79,7 +79,7 @@ async function createBarChart() {
           });
         });
 
-        let totalErrorsArray = {httpChrome, generalChrome, httpFirefox, generalFirefox, httpEdge, generalEdge, httpSafari, generalSafari, httpOther, generalOther};
+        let totalErrorsArray = [httpChrome, generalChrome, httpFirefox, generalFirefox, httpEdge, generalEdge, httpSafari, generalSafari, httpOther, generalOther];
         let totalErrors = 0;
         totalErrorsArray.forEach(num => {
             totalErrors += num;
