@@ -9,11 +9,29 @@ async function createUserVisits() {
 
 async function createBoxPlot() {
     //Create the load times box plot
+    let loadTimes = [];
+    await fetch("https://lelandbove27.site/api/static", {
+    method: "GET"
+    }).then(response => response.json()).then(data => {
+      let staticData = data;
+      staticData.forEach(obj => {
+        loadTimes.push(obj["Total Load Time"]);
+      });
+    });
+
+    let sortedTimes = loadTimes.sort();
+
+    let medianLoadTime = sortedTimes[Math.floor(sortedTimes.length / 2)];
+    let minLoadTime = sortedTimes[0];
+    let maxLoadTime = sortedTimes[sortedTimes.length - 1];
+    let quarter1LoadTime = sortedTimes[Math.floor(sortedTimes.length / 4)];
+    let quarter3LoadTime = sortedTimes[3 * Math.floor(sortedTimes.length / 4)];
+
     let boxPlotConfig = {
       type: 'boxplot',
-      backgroundColor: '#DCE6F1',
+      backgroundColor: '#FFFFFF',
       title: {
-        text: 'Base Salary Comparison',
+        text: 'Page Load Time',
         backgroundColor: 'none',
         color: 'black',
         fontSize: 24,
@@ -38,17 +56,13 @@ async function createBoxPlot() {
             rule: '%i == 0',
             backgrounCcolor: '#9A8AAD'
           },
-          {
-            rule: '%i == 1',
-            backgroundColor: '#AABD82'
-          }
         ]
       },
       scaleX: {
         offsetStart: 40,
         offsetEnd: 40,
         lineColor: 'none',
-        labels: ['Marketing', 'Research'],
+        labels: ['Load Time'],
         tick: {
           visible: false
         },
@@ -110,8 +124,7 @@ async function createBoxPlot() {
       },
       series: [{
         dataBox: [
-          [75, 100, 150, 225, 250],
-          [50, 75, 100, 125, 175]
+          [minLoadTime, quarter1LoadTime, medianLoadTime, quarter3LoadTime, maxLoadTime]
         ]
       }]
     };
@@ -160,7 +173,6 @@ async function createPieChart() {
     let otherPercentage = (other / total) * 100;
 
     //pie chart configuration and rendering
-  ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "b55b025e438fa8a98e32482b5f768ff5"];
   var pieConfig = {
   type: "pie",
   graph: {
@@ -193,7 +205,7 @@ async function createPieChart() {
         toggleAction: 'hide'
       },
       title: {
-        fontColor: "#8e99a9",
+        fontColor: "#000000",
         text: 'Pie Chart - Browser Usage',
         align: "left",
         offsetX: 10,
