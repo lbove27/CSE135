@@ -1,7 +1,7 @@
 ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "b55b025e438fa8a98e32482b5f768ff5"];
 
 async function createBarChart() {
-    await fetch("/api/activity/getType/error", {
+    await fetch("https://lelandbove27.site/api/activity/getType/error", {
       method: "GET"
     }).then(response => response.json()).then(data => {
       let activityData = data;
@@ -85,8 +85,6 @@ async function createBarChart() {
             totalErrors += num;
         });
         let maxErrors = 1.25 * math.max(...totalErrorsArray);
-
-
 
         //bar chart configuration and rendering
         var barConfig = {
