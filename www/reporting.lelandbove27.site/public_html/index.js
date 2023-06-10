@@ -48,7 +48,10 @@ async function createBoxPlot() {
       plot: {
         barWidth: 70,
         hoverState: {
-          visible: false,
+          visible: true,
+        },
+        lineExtension: {
+          value: true
         }
       },
       tooltip: {
@@ -65,7 +68,7 @@ async function createBoxPlot() {
       scaleX: {
         offsetStart: 40,
         offsetEnd: 40,
-        lineColor: '#000000',
+        lineColor: '#FFFFFF',
         labels: [''],
         tick: {
           visible: false
@@ -81,7 +84,7 @@ async function createBoxPlot() {
       scaleY: {
         offsetStart: 0,
         offsetEnd: 3,
-        values: '0:3:0.5',
+        values: '-0.5:3:0.3',
         format: '%v seconds',
         lineColor: '#7F7F7F',
         tick: {
