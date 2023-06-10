@@ -261,8 +261,8 @@ async function createBrowserBarChart() {
           "type": "bar",
           "background-color": "white",
           "title": {
-            "text": "Tech Giant Quarterly Revenue",
-            "font-color": "#7E7E7E",
+            "text": "Users Per Browser",
+            "font-color": "#000000",
             "backgroundColor": "none",
             "font-size": "22px",
             "alpha": 1,
@@ -277,7 +277,7 @@ async function createBrowserBarChart() {
             "align": "center",
             "adjust-layout": true,
             "marker": {
-              "type": "circle",
+              "type": "square",
               "border-color": "none",
               "size": "10px"
             },
