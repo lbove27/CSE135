@@ -2,17 +2,17 @@ ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "b55b025e438fa8a98e32482b5f768
 
 async function createUserVisits() {
   let userVisitsLocation = document.getElementById('user-visits');
-  let count = 0;
+  let sessionIdSet = new Set();
   await fetch("https://lelandbove27.site/api/static", {
     method: "GET"
     }).then(response => response.json()).then(data => {
       let staticData = data;
       staticData.forEach(obj => {
-        count++
+        sessionIdSet.add(obj["sessionId"]);
       });
     });
 
-    userVisitsLocation.innerHTML = count;
+    userVisitsLocation.innerHTML = sessionIdSet.size;
 
 } 
 
@@ -271,11 +271,15 @@ async function createPieChart() {
 
 async function createAllMetrics() {
   setTimeout(async () => {
-    await createPieChart();
+    await createUserVisits();
   }, 0);
   setTimeout(async () => {
-    await createBoxPlot();
+    await createPieChart();
   }, 500);
+  setTimeout(async () => {
+    await createBoxPlot();
+  }, 1000);
 }
+  
 
 createAllMetrics();
