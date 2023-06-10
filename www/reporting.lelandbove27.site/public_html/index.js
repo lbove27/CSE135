@@ -77,6 +77,7 @@ async function createBoxPlot() {
         offsetStart: 0,
         offsetEnd: 3,
         values: '0:3:0.5',
+        format: '$%v seconds',
         lineColor: '#7F7F7F',
         tick: {
           lineColor: '#7F7F7F'
