@@ -310,6 +310,7 @@ async function createBrowserBarChart() {
           },
           "scale-y": {
             "line-color": "#7E7E7E",
+            "angle": "90",
             "item": {
               "font-color": "#7e7e7e"
             },
@@ -318,7 +319,7 @@ async function createBrowserBarChart() {
               "visible": true
             },
             "label": {
-              "text": "$ Billions",
+              "text": "Users",
               "font-family": "arial",
               "bold": true,
               "font-size": "14px",
