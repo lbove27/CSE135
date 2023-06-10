@@ -89,7 +89,7 @@ async function createBoxPlot() {
           lineColor: '#7F7F7F'
         },
         guide: {
-          visible: false
+          visible: true
         }
       },
       options: {
