@@ -303,11 +303,14 @@ async function createAllMetrics() {
     await createUserVisits();
   }, 1000);
   setTimeout(async () => {
-    await createPieChart();
+    await createBounceRate();
   }, 1500);
   setTimeout(async () => {
-    await createBoxPlot();
+    await createPieChart();
   }, 2000);
+  setTimeout(async () => {
+    await createBoxPlot();
+  }, 2500);
 }
   
 
