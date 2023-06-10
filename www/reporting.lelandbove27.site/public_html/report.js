@@ -84,7 +84,7 @@ async function createBarChart() {
         totalErrorsArray.forEach(num => {
             totalErrors += num;
         });
-        let maxErrors = 1.25 * math.max(...totalErrorsArray);
+        let maxErrors = 1.25 * Math.max(...totalErrorsArray);
 
         //bar chart configuration and rendering
         var barConfig = {
