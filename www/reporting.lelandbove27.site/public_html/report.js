@@ -353,73 +353,39 @@ async function createBrowserBarChart() {
           },
           "series": [{
               "values": [
-                37.47,
+                37.47
               ],
-              "alpha": 0.95,
-              "borderRadiusTopLeft": 7,
-              "background-color": "purple",
-              "text": "Apple",
+              "background-color": "#FDD20A",
+              "text": "Chrome",
             },
             {
               "values": [
-                2.02,
-                2.59,
-                2.5,
-                2.91
+                2.02
               ],
-              "borderRadiusTopLeft": 7,
-              "alpha": 0.95,
-              "background-color": "orange",
-              "text": "Facebook"
+              "background-color": "#006CFF",
+              "text": "Safari"
             },
             {
+                "values": [
+                  2.02
+                ],
+                "background-color": "#55D555",
+                "text": "Edge"
+              },
+            {
               "values": [
-                13.4,
-                14.11,
-                14.89,
-                16.86
+                13.4
               ],
-              "alpha": 0.95,
-              "borderRadiusTopLeft": 7,
-              "background-color": "teal",
-              "text": "Google"
+              "background-color": "#E66000",
+              "text": "Firefox"
             },
             {
               "values": [
                 18.53,
-                24.52,
-                20.4,
-                23.38
               ],
-              "borderRadiusTopLeft": 7,
-              "alpha": 0.95,
-              "background-color": "red",
-              "text": "Microsoft"
+              "background-color": "#D3D3D3",
+              "text": "Other"
             },
-            {
-              "values": [
-                17.09,
-                25.59,
-                19.74,
-                19.34
-              ],
-              "borderRadiusTopLeft": 7,
-              "alpha": 0.95,
-              "background-color": "blue",
-              "text": "Amazon"
-            },
-            {
-              "values": [
-                2.31,
-                2.36,
-                2.42,
-                2.52
-              ],
-              "borderRadiusTopLeft": 7,
-              "alpha": 0.95,
-              "background-color": "green",
-              "text": "Cognizant"
-            }
           ]
         }]
       };
