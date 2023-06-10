@@ -2,9 +2,12 @@
 <html lang="en">
     <head>
         <title>Report</title>
+        <script nonce="undefined" src="https://cdn.zingchart.com/zingchart.min.js"></script>
+        <script src="https://cdn.zinggrid.com/zinggrid.min.js" defer></script>
     </head>
     <body>
         <h1>This is the report</h1>
+        <zing-grid src="https://lelandbove27.site/api/activity/getType/error" caption="Error Information" id="grid" sorter pager page-size="10"></zing-grid>
         <button id='logout'>Logout</button>
         <script>
         let logoutButton = document.getElementById('logout');
