@@ -1,5 +1,9 @@
 ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "b55b025e438fa8a98e32482b5f768ff5"];
 
+async function createBounceRate() {
+
+}
+
 async function createUserVisits() {
   let userVisitsLocation = document.getElementById('user-visits');
   let sessionIdSet = new Set();
@@ -157,7 +161,6 @@ async function createBoxPlot() {
     });
 }
 
-
 //Create the pie chart
 async function createPieChart() {
   await fetch("https://lelandbove27.site/api/static", {
@@ -245,7 +248,7 @@ async function createPieChart() {
       series: [{
           values: [edgePercentage],
           text: "Microsoft Edge",
-          backgroundColor: '#7FBA00',
+          backgroundColor: '#55d555',
         },
         {
           values: [chromePercentage],
