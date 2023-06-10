@@ -253,7 +253,9 @@ async function createAllMetrics() {
   setTimeout(async () => {
     await createPieChart();
   }, 0);
-  createBoxPlot();
+  setTimeout(async () => {
+    await createBoxPlot();
+  }, 0);
 }
 
 createAllMetrics();
