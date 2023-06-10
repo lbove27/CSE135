@@ -420,8 +420,6 @@ async function createBrowserBarChart() {
             width: '100%'
           });
 
-
-
         });
     });
 }
@@ -433,7 +431,7 @@ async function createBrowserBarChart() {
     }, 1000);
     setTimeout(async () => {
       await createBrowserBarChart();
-    }, 1500);
+    }, 2000);
     setTimeout(async () => {
       
     }, 2000);
