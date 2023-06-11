@@ -286,6 +286,7 @@ app.get("/users/:authToken", async (req, res) => {
 });
 
 app.get("/adminAccess/:authToken", async (req, res) => {
+  let token = req.params.authToken;
   try {
     await client.connect();
     let user = await client.db("test").collection("users").findOne({ "authToken" : token });
