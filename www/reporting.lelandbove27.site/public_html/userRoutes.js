@@ -285,6 +285,17 @@ app.get("/users/:authToken", async (req, res) => {
       } 
 });
 
+app.get("/adminAccess/:authToken", async (req, res) => {
+  try {
+    await client.connect();
+    let user = await client.db("test").collection("users").findOne({ "authToken" : token });
+    res.header("Content-Type: application/json");
+    res.send(json.Stringify({'adminBool':user.adminBool}));
+  } finally {
+    await client.close();
+  } 
+});
+
 //edit users route
 app.get("/edit", async (req, res) => {
     let result;

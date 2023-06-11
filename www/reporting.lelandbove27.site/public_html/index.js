@@ -1,5 +1,7 @@
 ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "b55b025e438fa8a98e32482b5f768ff5"];
 
+
+
 async function createBounceRate() {
   await fetch("https://lelandbove27.site/api/activity/getType/unload", {
     method: "GET"
@@ -63,16 +65,18 @@ async function createBoxPlot() {
       type: 'boxplot',
       backgroundColor: '#FFFFFF',
       title: {
-        text: 'Page Load Times',
+        text: 'Average Overall Page Load Times',
         backgroundColor: 'none',
         color: 'black',
-        fontSize: 24,
+        fontSize: 30,
         fontWeight: 'none',
+        fontFamily: "Crimson Text",
         offsetY: '36%'
       },
       subtitle: {
         text: 'All load times with min/max, median, and 1st and 3rd quartiles',
-        fontSize: 18,
+        fontSize: 24,
+        fontFamily: "Crimson Text",
         color: 'black',
         fontWeight: 'none'
       },
@@ -84,16 +88,22 @@ async function createBoxPlot() {
       plot: {
         barWidth: 70,
         hoverState: {
-          visible: true,
+          visible: false,
         },
 
       },
+      style: {
+        'padding': '0',
+        'margin': '0',
+      },
+      width: "100%",
+      height: "100%",
       tooltip: {
-        text: '%data-value',
         shadow: false,
+        text: "Min: " + minLoadTime + "\nMax: "  + maxLoadTime + "\nMedian: " + medianLoadTime + "\nQ1: " + quarter1LoadTime + "\nQ3: "  + quarter3LoadTime + "\n",
+        fontFamily: "Crimson Text",
         borderRadius: 3,
         rules: [{
-            rule: '%i == 0',
             backgroundColor: '#9A8AAD'
           },
         ]
@@ -108,7 +118,7 @@ async function createBoxPlot() {
           visible: false
         },
         item: {
-          fontSize: 14
+          fontSize: '30px'
         },
         guide: {
           visible: false
@@ -118,6 +128,7 @@ async function createBoxPlot() {
       scaleY: {
         offsetStart: 0,
         offsetEnd: 3,
+        fontFamily: "Crimson Text",
         values: '0:3:0.3',
         format: '%v seconds',
         lineColor: '#7F7F7F',
@@ -165,9 +176,7 @@ async function createBoxPlot() {
         }
       },
       series: [{
-        dataBox: [
-          [minLoadTime, quarter1LoadTime, medianLoadTime, quarter3LoadTime, maxLoadTime]
-        ]
+        dataBox: [[minLoadTime, quarter1LoadTime, medianLoadTime, quarter3LoadTime, maxLoadTime]]
       }]
     };
  
@@ -225,6 +234,12 @@ async function createPieChart() {
   graph: {
     backgroundColor: 'black'
   },
+  style: {
+    'padding': '0',
+    'margin': '0',
+  },
+  width: "75%",
+  height: "75%",
   plot: {
       borderColor: "#000000",
       borderWidth: 5,
@@ -253,14 +268,14 @@ async function createPieChart() {
       },
       title: {
         fontColor: "#000000",
-        text: 'Pie Chart - Browser Usage',
+        text: 'Browser Usage',
         align: "left",
         offsetX: 10,
         fontFamily: "Crimson Text",
-        fontSize: 40
+        fontSize: 30
       },
       plotarea: {
-        margin: "30 30 30 30"
+        margin: 'dynamic'
       },
       series: [{
           values: [edgePercentage],
@@ -293,8 +308,6 @@ async function createPieChart() {
     zingchart.render({
       id: 'pieChart',
       data: pieConfig,
-      height: '100%',
-      width: '100%'
     });
   });
 }

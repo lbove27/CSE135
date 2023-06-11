@@ -10,23 +10,29 @@
   </head>
   <body>
     <h1>Analytics Dashboard for lelandbove27.site</h1>
-    <div>
-      <p>Total User Visits</p>
-      <p id="user-visits"></p>
-    </div>
-    <div>
+    <nav id="navbar">
+      <a id="report-link">Link to Report</a>
+      <button id='logout'>Logout</button>
+    </nav>
+    <section class="info">
+      <div class="item textItem">
+        <p>Total User Visits:</p>
+        <p id="user-visits"></p>
+      </div>
+      <div class='item' id='pieChart'></div>
+    </section>
+    <section class="info">
+      <div class="item textItem">
+        <p>Average/Expected Load Time</p>
+        <p id="expected-time" class="item"></p>
+      </div>
+      <div id='boxPlotChart' class="item"></div>
+    </section>
+    <section id="grid-container">
       <p>Bounce Rate</p>
       <p id="bounce-rate"></p>
-    </div>
-    <div>
-      <p>Average/Expected Load Time</p>
-      <p id="expected-time"></p>
-    </div>
-    <div id='pieChart'><a class="zc-ref" href="https://www.zingchart.com/">Charts by ZingChart</a></div>
-    <div id='boxPlotChart'><a class="zc-ref" href="https://www.zingchart.com/">Charts by ZingChart</a></div>
-    <zing-grid src="https://lelandbove27.site/api/activity/getType/unload" caption="User Entry Time, Exit Time, and Total Time Spent on the Given Page" id="grid" sorter pager page-size="10" fields="-type, -_id"></zing-grid>
-    <a id="report-link">Link to Report</a>
-    <button id='logout'>Logout</button>
+      <zing-grid src="https://lelandbove27.site/api/activity/getType/unload" caption="User Entry Time, Exit Time, and Total Time Spent on the Given Page" id="grid" sorter pager page-size="4"></zing-grid>
+    </section>
     <script>
       let logoutButton = document.getElementById('logout');
       logoutButton.onclick = () => {
