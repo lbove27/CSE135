@@ -6,16 +6,22 @@
     </head>
     <body>
         <h1>Edit Users</h1>
+        <button id='logout'>Logout</button>
+        <a id="report-link">Report</a>
+        <a id="dashboard-link">Dashboard</a>
         <zing-grid src="https://reporting.lelandbove27.site/user/edit" caption="Users" id="grid" sorter pager page-size="5" editor editor-controls params='{"idKey": "_id"}'>
           
         </zing-grid>
-        <button id='logout'>Logout</button>
         <script>
         let logoutButton = document.getElementById('logout');
         logoutButton.onclick = () => {
             sessionStorage.removeItem("auth_token");
             window.location.href='../../logout.html';
         }
+        let reportLink = document.getElementById('report-link');
+        let dashboardLink = document.getElementById('dashboard-link');
+        reportLink.href = "https://reporting.lelandbove27.site/user/report/" + sessionStorage.getItem('auth_token');
+        dashboardLink.href = "https://reporting.lelandbove27.site/user/dashboard/" + sessionStorage.getItem('auth_token');
         </script>
     </body>
 </html>

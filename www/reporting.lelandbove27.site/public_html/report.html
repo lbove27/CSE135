@@ -23,10 +23,21 @@
                 <p id="errors-today"></p>
             </div>
         </section>
+        <p>
+            The total errors show how many errors there have been in the past,
+            and errors today shows if there still need to be improvement in the amount of errors experienced by users.
+        </p>
         <section id="charts">
             <div id='barChart'></div>
             <div id='browserBarChart'></div>
         </section>
+        <p>The data shows that there are the most errors occurring in Chrome, 
+            but Chrome also has the largest number of users. On the other hand, 
+            Safari has no errors, but almost no users. It also shows that nobody is 
+            using any other browsers. Lastly, we can see that the errors occurring most
+            often are http errors, meaning there could be a problem with bots looking
+            for pages that don't exist or a broken link that needs to be fixed.
+        </p>
         <section id="grid-section">
             <zing-grid src="https://lelandbove27.site/api/activity/getType/error" caption="Error Information per Session" id="grid" sorter pager page-size="5"></zing-grid>
         </section>
