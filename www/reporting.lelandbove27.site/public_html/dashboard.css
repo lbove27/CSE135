@@ -40,6 +40,10 @@ h1 {
     height: 300px;
 }
 
+#boxPlotChart {
+    margin: 100px;
+}
+
 .info {
     display: flex;
     flex-direction: row;
