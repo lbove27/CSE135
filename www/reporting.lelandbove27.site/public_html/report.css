@@ -1,17 +1,61 @@
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
 
 * {
+    font-family: "Crimson Text";
+    font-size: 30px;
+}
+
+h1, h2 {
+    font-size: 50px;
+    display: flex;
     justify-content: center;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+#navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#errors {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#grid {
+    margin: 100px;
+    width: 90%;
+}
+
+#grid-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 100px;
+}
+
+#charts {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 #barChart {
     width: 100%;
     height: 100%;
     min-height: 500px;
+    margin: 100px;
 } 
 
 #browserBarChart {
     width: 100%;
     height: 100%;
     min-height: 500px;
+    margin: 100px;
 } 

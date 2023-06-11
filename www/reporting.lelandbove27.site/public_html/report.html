@@ -9,12 +9,27 @@
     <body>
         <h1>Error Report</h1>
         <h2>Which browsers are experiencing errors? How often and what kind?</h2>
-        <p>Total Errors: </p>
-        <p id="total-errors"></p>
-        <div id='barChart'></div>
-        <div id='browserBarChart'></div>
-        <zing-grid src="https://lelandbove27.site/api/activity/getType/error" caption="Error Information per Session" id="grid" sorter pager page-size="5"></zing-grid>
-        <button id='logout'>Logout</button>
+        <nav id="navbar">
+            <button id='logout'>Logout</button>
+            <a id="dashboard-link">Dashboard</a>
+          </nav>
+        <section id="errors">
+            <div>
+                <p>Total Errors: </p>
+                <p id="total-errors"></p>
+            </div>
+            <div>
+                <p>Errors Today:</p>
+                <p id="errors-today"></p>
+            </div>
+        </section>
+        <section id="charts">
+            <div id='barChart'></div>
+            <div id='browserBarChart'></div>
+        </section>
+        <section id="grid-section">
+            <zing-grid src="https://lelandbove27.site/api/activity/getType/error" caption="Error Information per Session" id="grid" sorter pager page-size="5"></zing-grid>
+        </section>
         <script>
         let logoutButton = document.getElementById('logout');
         logoutButton.onclick = () => {
