@@ -102,6 +102,7 @@ async function createBoxPlot() {
         shadow: false,
         text: "Min: " + minLoadTime + "\nMax: "  + maxLoadTime + "\nMedian: " + medianLoadTime + "\nQ1: " + quarter1LoadTime + "\nQ3: "  + quarter3LoadTime + "\n",
         fontFamily: "Crimson Text",
+        fontSize: '20',
         borderRadius: 3,
         rules: [{
             backgroundColor: '#9A8AAD'
