@@ -6,6 +6,13 @@ html, body {
 }
 */
 
+#navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
 #grid {
     margin: 100px;
     width: 90%;
