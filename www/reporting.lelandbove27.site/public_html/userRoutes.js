@@ -290,6 +290,7 @@ app.get("/adminAccess/:authToken", async (req, res) => {
     await client.connect();
     let user = await client.db("test").collection("users").findOne({ "authToken" : token });
     res.header("Content-Type: application/json");
+    res.status(200);
     res.send(json.Stringify({'adminBool':user.adminBool}));
   } finally {
     await client.close();
