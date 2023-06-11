@@ -3,7 +3,10 @@ ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "b55b025e438fa8a98e32482b5f768
 fetch("/user/adminAccess/" + sessionStorage.getItem('auth_token'), {
   method: "GET"
 }).then(response => response.json()).then(data => {
-  console.log(data);
+  if(data.adminBool == 'true') {
+    let link = document.getElementById('user-grid');
+    link.href = "https://reporting.lelandbove27.site/user/users/" + sessionStorage.getItem('auth_token'); 
+  }
 });
 
 async function createBounceRate() {
