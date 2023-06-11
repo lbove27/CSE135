@@ -4,8 +4,10 @@ fetch("/user/adminAccess/" + sessionStorage.getItem('auth_token'), {
   method: "GET"
 }).then(response => response.json()).then(data => {
   if(data.adminBool == 'true') {
-    let link = document.getElementById('user-grid');
+    let nav = document.getElementById('navbar');
+    let link = document.createElement('a');
     link.href = "https://reporting.lelandbove27.site/user/users/" + sessionStorage.getItem('auth_token'); 
+    nav.appendChild(link);
   }
 });
 
