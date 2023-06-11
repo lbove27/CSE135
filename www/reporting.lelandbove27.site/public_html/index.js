@@ -6,6 +6,7 @@ fetch("/user/adminAccess/" + sessionStorage.getItem('auth_token'), {
   if(data.adminBool == 'true') {
     let nav = document.getElementById('navbar');
     let link = document.createElement('a');
+    link.innerHTML = "User Grid";
     link.href = "https://reporting.lelandbove27.site/user/users/" + sessionStorage.getItem('auth_token'); 
     nav.appendChild(link);
   }
